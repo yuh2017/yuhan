@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cities & Urban Resilience - Yu Han</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #3a0ca3;
+            --secondary-color: #80ed99;
+            --accent-color: #e74c3c;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        /* Header and Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--white) 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: var(--shadow-hover);
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        /* Back Button */
+        .back-button {
+            position: absolute;
+            top: 100px;
+            left: 2rem;
+            background: var(--secondary-color);
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            z-index: 100;
+        }
+
+        .back-button:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Content Section */
+        .content {
+            padding: 4rem 0;
+        }
+
+        .content-text {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-text p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+        .content-text ul,
+        .content-text ol {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem; /* keeps bullets/numbers indented nicely */
+        }
+
+        .content-text li {
+            font-size: 1.1rem;      /* same as your paragraph */
+            line-height: 1.7;       /* same as your paragraph */
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;  /* adds a bit of spacing between list items */
+        }
+
+        .research-image {
+            display: block;
+            margin: 3rem auto;
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Publications Section */
+        .publications {
+            background-color: var(--bg-light);
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .publication {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .publication:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .publication p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .publication a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .publication a:hover {
+            text-decoration: underline;
+        }
+
+        .publication strong {
+            color: var(--primary-color);
+        }
+
+        .publication i {
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary-color);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .back-button {
+                left: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .content {
+                padding: 2rem 0;
+            }
+
+            .publications {
+                padding: 2rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <a href="cv.html" class="back-button">← Back to Home</a>
+    
+    <header>
+        <div class="nav-container">
+            <a href="cv.html" class="logo">Yu Han</a>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="cv.html">About Me</a></li>
+                    <li><a href="cv.html#research">Research</a></li>
+                    <li><a href="cv.html#teaching">Teaching</a></li>
+                    <li><a href="cv.html#publications">Publications</a></li>
+                    <li><a href="cv.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <img src="./images/pics/2.resilience.jpg" alt="Urban Resilience Research" class="hero-image">
+                <h1>Resilient Transport Systems</h1>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="content">
+            <div class="container">
+                <div class="content-text fade-in-up">
+                    <p>Urban resilience has become a central theme in addressing the challenges posed by climate change, rapid urbanization, and environmental changes. To support informed decision-making in this context, my research focuses on promoting the resilience and adaptability of urban transport systems in the face of climate change impacts. Utilizing an interdisciplinary approach, I will actively incorporate diverse data and methods and collaborate across disciplines to build a holistic understanding of transport resilience under climate change. 
+                    </p>
+                    <p>Key research questions explored in this theme include:</p>
+                    <ol>
+                      <li>How do individual travel behaviors change in response to disruptions from hydroclimate events?</li>
+                      <li>How can this be modeled effectively using agent-based simulation?</li>
+                      <li>What are the most effective adaptive transport adaptation strategies for mitigating the impacts of hydroclimate hazards on urban transport networks and services?</li>
+                    </ol>
+
+                    <p>Relying on the open-source agent-based simulation framework, MATSim, this research will develop advanced simulations to evaluate the impacts of hydroclimate hazards on transport networks under various climate scenarios to support investment in resilient mobility systems. Global open data sources, such as OpenStreetMap (OSM) data, satellite data, together with demographic data in selected study areas will be applied to measure travel activities of commuters before and after natural disaster. This bottom-up modeling approach captures dynamic human travel behaviors and enables us to simulate the daily travel of thousands of individual “agents” on transportation networks.</p>
+                    
+                    <p>We will utilize scenario planning techniques to explore adaptive transport management strategies, infrastructure retrofitting, and policy interventions to pre-disaster evacuation and post-disaster recovery. For example, the NASA's Black Marble VIIRS nightlight imagery, together with other socioeconomic and human behavior data, will be applied to estimate evacuation and recovery rates of human activities from historical natural hazards on the spatial-temporal scales. The outcomes will be evaluated using the average commute disruption, areas of the city cut off by flooding, or ridership changes in public transit to inform future transportation planning. I will further pair these simulations with economic impact analysis to understand costs of transport disruptions and benefits of adaptation. For instance, I will use value of time lost in congestion, freight delays, or recovery expenditures – to illustrate the return on investing in resilience. Moreover, by adopting input-output analysis, I will further quantify direct and indirect economic loss due to transport outages to support evidence-based planning and risk management.</p>
+
+                    <img src="images/od_flows.jpg" alt="Urban Data Science Research" class="research-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section class="publications">
+            <div class="container">
+                <h2 class="section-title">Related Publications</h2>
+                
+                <div class="publication fade-in-up">
+                    <p><strong>Yu Han</strong>, Wei Zhai, Pallab Mozumder, Cees van Westen, Changjie Chen (2024). <a href="https://www.sciencedirect.com/science/article/pii/S2214367X24001960">Modeling evacuation activities amid compound hazards: Insights from hurricane Irma in Southeast Florida</a>. <i>Travel Behaviour and Society</i>, 38, 100933.</p>
+                </div>
+
+
+                <div class="publication fade-in-up">
+                    <p><strong>Yu Han</strong>, Changjie Chen, Zhong-Ren Peng, Pallab Mozumder (2021). <a href="https://link.springer.com/article/10.1007/s11116-021-10172-w">Evaluating impacts of coastal flooding on the transportation system using an activity-based travel demand model: a case study in Miami-Dade County, FL</a>. <i>Transportation</i>.</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Yu Han. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe publications for animation
+        document.querySelectorAll('.publication, .content-text').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

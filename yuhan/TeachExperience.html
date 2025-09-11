@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching Experience - Yu Han</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #3a0ca3;
+            --secondary-color: #80ed99;
+            --accent-color: #e74c3c;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        /* Header and Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--white) 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: var(--shadow-hover);
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        /* Back Button */
+        .back-button {
+            position: absolute;
+            top: 100px;
+            left: 2rem;
+            background: var(--secondary-color);
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            z-index: 100;
+        }
+
+        .back-button:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Content Section */
+        .content {
+            padding: 4rem 0;
+        }
+
+        /* Course Cards */
+        .course-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .course-header {
+            border-bottom: 2px solid var(--bg-light);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .course-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .course-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .course-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .course-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .course-description p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary-color);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .back-button {
+                left: 1rem;
+            }
+
+            .course-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .course-card {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .content {
+                padding: 2rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .course-card {
+                padding: 1.5rem;
+            }
+
+            .course-title {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <a href="cv.html" class="back-button">← Back to Home</a>
+    
+    <header>
+        <div class="nav-container">
+            <a href="cv.html" class="logo">Yu Han</a>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="cv.html">About Me</a></li>
+                    <li><a href="cv.html#research">Research</a></li>
+                    <li><a href="cv.html#teaching">Teaching</a></li>
+                    <li><a href="cv.html#publications">Publications</a></li>
+                    <li><a href="cv.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <img src="./images/pics/3coursetaught.jpg" alt="Teaching Experience" class="hero-image">
+                <h1>Teaching Experience</h1>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="content">
+            <div class="container">
+                
+                <div class="course-card fade-in-up" id="disaster-risk-management">
+                    <div class="course-header">
+                        <h3 class="course-title">Disaster Risk Management</h3>
+                        <div class="course-info">
+                            <span><strong>Role:</strong> Co-Instructor</span>
+                            <span><strong>Institution:</strong> University of Twente</span>
+                            <span><strong>Term:</strong> Fall 2023</span>
+                        </div>
+                    </div>
+                    <div class="course-description">
+                        <p>This course focuses on the analysis of risk and its applications in decision-making across various phases of disaster management. Students will gain a multidisciplinary understanding of hazards, including their types, frequency, intensity, and modeling methods. The curriculum covers elements-at-risk, focusing on their types, classification, data collection, and quantification. It also examines vulnerabilities in social, environmental, and institutional perspectives, as well as capacities and adaptations necessary for prediction, coping, and recovery.</p>
+                        
+                        <p>Key topics include risk management from diverse stakeholder perspectives, utilizing risk information for risk reduction planning, and performing cost-benefit analyses in scenario-based adaptation planning. The course also explores the application of risk information in early warning systems, damage assessment methods, and the use of this information in disaster reconstruction planning.</p>
+                        
+                        <p>Additionally, students will study the impacts of climate change, population growth, and land-use changes on natural hazard risk. This comprehensive approach equips students with the knowledge and tools to effectively manage and mitigate risks in a changing world.</p>
+                    </div>
+                </div>
+
+                <div class="course-card fade-in-up" id="global-challenge-local-actions">
+                    <div class="course-header">
+                        <h3 class="course-title">Global Challenge, Local Actions</h3>
+                        <div class="course-info">
+                            <span><strong>Role:</strong> Project Tutor</span>
+                            <span><strong>Institution:</strong> University of Twente</span>
+                            <span><strong>Term:</strong> Spring 2024</span>
+                        </div>
+                    </div>
+                    <div class="course-description">
+                        <p>This graduate-level course addresses the pressing global challenges of the 21st century, including those related to climate change, urban sprawl, and increased resource consumption. The course aims to enhance students' awareness of the urgency to tackle these issues across multiple scales and emphasizes the importance of interdisciplinary approach to address them.</p>
+                        
+                        <p>Key global challenges will be introduced through a series of lectures. Afterward, students will select topics of interest, form groups, and conduct in-depth analyses of specific global issues. This collaborative effort will involve designing local adaptation strategies, plans, and policy recommendations to address these challenges.</p>
+                        
+                        <p>Throughout the course, students will also develop essential geoinformation techniques and acquire specialized knowledge to effectively manage these problems at the local level.</p>
+                    </div>
+                </div>
+
+                <div class="course-card fade-in-up" id="land-use-transportation-modeling">
+                    <div class="course-header">
+                        <h3 class="course-title">Land Use and Transportation Modeling</h3>
+                        <div class="course-info">
+                            <span><strong>Role:</strong> Co-Instructor</span>
+                            <span><strong>Institution:</strong> University of Florida</span>
+                            <span><strong>Term:</strong> Spring 2019</span>
+                        </div>
+                    </div>
+                    <div class="course-description">
+                        <p>This graduate level course introduces students to the principles and techniques of modeling land use and transportation system. It focuses on the methods used to analyze and predict the impacts of transportation policies on urban development and the interactions between land use and transportation demand.</p>
+                        
+                        <p>The course will introduce students theories, methods, case studies of travel demand modeling (trip generation, trip distribution, mode choice, and route assignment), land use modeling (econometric models, spatial interaction models, and integrated land use-transportation models) and activity-based models (activity generation, activity scheduling, tour formation, etc.).</p>
+                        
+                        <p>The course includes hands-on lab sessions to understand these modeling processes.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Yu Han. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe course cards for animation
+        document.querySelectorAll('.course-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
