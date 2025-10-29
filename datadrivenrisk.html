@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cities & Urban Resilience - Yu Han</title>
+    <meta name="description" content="Data-Driven Risk Assessment - Yu Han's Research">
+    <title>Data-Driven Risk Assessment - Yu Han</title>
     <style>
         * {
             margin: 0;
@@ -12,382 +13,378 @@
         }
 
         :root {
-            --primary-color: #3a0ca3;
-            --secondary-color: #80ed99;
-            --accent-color: #e74c3c;
-            --text-dark: #2c3e50;
-            --text-light: #7f8c8d;
-            --bg-light: #f8f9fa;
-            --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.2);
+            --theme-color: #b509ac;
+            --theme-hover: #8b078a;
+            --text-color: #111111;
+            --text-secondary: #666666;
+            --bg-color: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --border-color: #e0e0e0;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--white);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            font-size: 16px;
         }
 
-        /* Header and Navigation */
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 1200px) {
+            .container { max-width: 960px; }
+        }
+
+        @media (max-width: 992px) {
+            .container { max-width: 720px; }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: 540px;
+                padding: 0 1rem;
+            }
+        }
+
         header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            padding: 1rem 0;
-            position: fixed;
+            position: sticky;
             top: 0;
-            width: 100%;
+            background: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
             z-index: 1000;
+            transition: box-shadow 0.3s ease;
+        }
+
+        header.scrolled {
             box-shadow: var(--shadow);
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .nav-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 0;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
             text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--theme-color);
         }
 
         nav ul {
             display: flex;
             list-style: none;
             gap: 2rem;
+            margin: 0;
         }
 
         nav a {
-            color: var(--white);
-            text-decoration: none;
+            font-size: 0.875rem;
             font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
         }
 
         nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+            color: var(--theme-color);
         }
 
-        .mobile-menu-toggle {
+        .back-link {
+            font-size: 0.875rem;
+            color: var(--theme-color);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--theme-hover);
+        }
+
+        .mobile-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
             padding: 0.5rem;
         }
 
-        .mobile-menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--white);
+        .mobile-toggle span {
+            width: 22px;
+            height: 2px;
+            background: var(--text-color);
             margin: 3px 0;
             transition: 0.3s;
         }
 
-        /* Main Content */
-        main {
-            margin-top: 80px;
-            min-height: calc(100vh - 80px);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--bg-light) 0%, var(--white) 100%);
-            padding: 4rem 0;
-            text-align: center;
+        .hero-section {
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .hero-image {
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             height: 300px;
             object-fit: cover;
-            border-radius: 15px;
-            box-shadow: var(--shadow-hover);
-            margin-bottom: 2rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-        }
-
-        /* Back Button */
-        .back-button {
-            position: absolute;
-            top: 100px;
-            left: 2rem;
-            background: var(--secondary-color);
-            color: var(--white);
-            text-decoration: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 0 auto 2rem;
+            display: block;
             box-shadow: var(--shadow);
-            z-index: 100;
         }
 
-        .back-button:hover {
-            background: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            text-align: center;
         }
 
-        /* Content Section */
-        .content {
+        .content-section {
             padding: 4rem 0;
         }
 
-        .content-text {
-            max-width: 900px;
+        .content-wrapper {
+            max-width: 800px;
             margin: 0 auto;
         }
 
+        .content-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
         .content-text p {
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--text-dark);
+            margin-bottom: 1.5rem;
         }
 
         .research-image {
-            display: block;
-            margin: 3rem auto;
-            max-width: 600px;
             width: 100%;
+            max-width: 600px;
             height: auto;
-            border-radius: 15px;
+            border-radius: 8px;
+            margin: 3rem auto;
+            display: block;
             box-shadow: var(--shadow);
         }
 
-        /* Publications Section */
-        .publications {
-            background-color: var(--bg-light);
+        .publications-section {
             padding: 4rem 0;
+            background-color: var(--bg-secondary);
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            color: var(--text-color);
             text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary-color);
-        }
-
-        .publication {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            max-width: 900px;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .publication-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+
+        .publication-item {
+            background: var(--bg-color);
+            padding: 1.5rem;
             margin-bottom: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--theme-color);
+            transition: all 0.3s ease;
         }
 
-        .publication:hover {
-            transform: translateX(10px);
-            box-shadow: var(--shadow-hover);
+        .publication-item:hover {
+            box-shadow: var(--shadow);
+            transform: translateX(4px);
         }
 
-        .publication p {
+        .publication-item p {
+            font-size: 0.95rem;
+            line-height: 1.7;
             margin: 0;
-            line-height: 1.6;
         }
 
-        .publication a {
-            color: var(--secondary-color);
-            text-decoration: none;
+        .publication-item strong {
+            color: var(--text-color);
             font-weight: 600;
         }
 
-        .publication a:hover {
+        .publication-item a {
+            color: var(--theme-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .publication-item a:hover {
+            color: var(--theme-hover);
             text-decoration: underline;
         }
 
-        .publication strong {
-            color: var(--primary-color);
-        }
-
-        .publication i {
-            color: var(--text-light);
+        .publication-item i {
+            color: var(--text-secondary);
             font-style: italic;
         }
 
-        /* Footer */
         footer {
-            background: var(--primary-color);
-            color: var(--white);
-            text-align: center;
+            background: var(--text-color);
+            color: white;
             padding: 2rem 0;
+            text-align: center;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-container {
-                padding: 0 1rem;
-            }
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
 
+        @media (max-width: 768px) {
             nav ul {
                 display: none;
                 position: absolute;
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: var(--primary-color);
+                background: var(--bg-color);
                 flex-direction: column;
                 padding: 1rem;
-                box-shadow: var(--shadow);
+                border-bottom: 1px solid var(--border-color);
+                gap: 0;
             }
 
             nav ul.active {
                 display: flex;
             }
 
-            .mobile-menu-toggle {
+            nav li {
+                padding: 0.75rem 0;
+            }
+
+            .mobile-toggle {
                 display: flex;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-
-            .back-button {
-                left: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 2rem 0;
-            }
-
-            .content {
-                padding: 2rem 0;
-            }
-
-            .publications {
-                padding: 2rem 0;
-            }
-
-            .hero h1 {
+            .hero-title {
                 font-size: 2rem;
             }
-        }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+            .hero-image {
+                height: 200px;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            .content-section {
+                padding: 3rem 0;
             }
-        }
 
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
+            .publications-section {
+                padding: 3rem 0;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-button">← Back to Home</a>
-    
-    <header>
-        <div class="nav-container">
-            <a href="index.html" class="logo">Yu Han</a>
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="index.html">About Me</a></li>
-                    <li><a href="index.html#research">Research</a></li>
-                    <li><a href="index.html#teaching">Teaching</a></li>
-                    <li><a href="index.html#publications">Publications</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu-toggle" id="mobile-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+    <header id="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">Yu Han</a>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#research">Research</a></li>
+                        <li><a href="index.html#publications">Publications</a></li>
+                        <li><a href="index.html#teaching">Teaching</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-toggle" id="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero">
+        <section class="hero-section">
             <div class="container">
-                <img src="./images/pics/3.artificialintelligence.jpg" alt="Urban Resilience Research" class="hero-image">
-                <h1>Data-Driven Risk Assessment</h1>
+                <img src="./images/pics/3.artificialintelligence.jpg" alt="Data-Driven Risk Research" class="hero-image">
+                <h1 class="hero-title">Data-Driven Risk Assessment</h1>
             </div>
         </section>
 
-        <!-- Content Section -->
-        <section class="content">
+        <section class="content-section">
             <div class="container">
-                <div class="content-text fade-in-up">
-                    <p>Relying on the asset-level data, household surveys, human activity data, and natural hazard data, I am applying data-driven techniques to explore future trends of urban development under the impacts of climate change and integrate them into my Agent-Based Modeling framework. I aim to explore innovative methodologies that leverage artificial intelligence (AI) to synthesize population data and simulate population activities. For example, I am using large language models (LLM) and machine learning-based approaches to generate individual activity patterns and assess behavioral during and after disasters, enabling a more comprehensive assessment of dynamic human exposure to compound and cascading events. The insights gained from this theme, particularly the understanding of individual and household responses to hazards, will directly inform the development of more realistic and human-centric adaptation strategies. The Findings will be visualized and communicated through the digital twin based approaches </p>
-                    
-                    <p>Meanwhile, I leverage cutting-edge methods from computer science, spatial statistics, and urban planning to address critical urban environmental issues and promote social resilience. This research involves extracting actionable insights from large-scale urban data using advanced data science techniques. By developing new geospatial models and analytical tools, my work focuses on improving the collection, processing, visualization, and analysis of urban data across diverse contexts—both in urban centers and rural areas. These tools are designed to support urban planning and management, with an emphasis on solving key social challenges such as inequality, vulnerability, and access to resources. Ultimately, my research aims to foster more resilient cities by providing innovative approaches to urban planning that prioritize sustainability, inclusivity, and adaptability.</p>
+                <a href="index.html#research" class="back-link">← Back to Research</a>
+                
+                <div class="content-wrapper">
+                    <div class="content-text">
+                        <p>Relying on the asset-level data, household surveys, human activity data, and natural hazard data, I am applying data-driven techniques to explore future trends of urban development under the impacts of climate change and integrate them into my Agent-Based Modeling framework. I aim to explore innovative methodologies that leverage artificial intelligence (AI) to synthesize population data and simulate population activities. For example, I am using large language models (LLM) and machine learning-based approaches to generate individual activity patterns and assess behavioral during and after disasters, enabling a more comprehensive assessment of dynamic human exposure to compound and cascading events. The insights gained from this theme, particularly the understanding of individual and household responses to hazards, will directly inform the development of more realistic and human-centric adaptation strategies. The Findings will be visualized and communicated through the digital twin based approaches.</p>
+                        
+                        <p>Meanwhile, I leverage cutting-edge methods from computer science, spatial statistics, and urban planning to address critical urban environmental issues and promote social resilience. This research involves extracting actionable insights from large-scale urban data using advanced data science techniques. By developing new geospatial models and analytical tools, my work focuses on improving the collection, processing, visualization, and analysis of urban data across diverse contexts—both in urban centers and rural areas. These tools are designed to support urban planning and management, with an emphasis on solving key social challenges such as inequality, vulnerability, and access to resources. Ultimately, my research aims to foster more resilient cities by providing innovative approaches to urban planning that prioritize sustainability, inclusivity, and adaptability.</p>
 
-                    <img src="images/research4.jpg" alt="Urban Data Science Research" class="research-image">
+                        <img src="images/research4.jpg" alt="Data Analytics Research" class="research-image">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Publications Section -->
-        <section class="publications">
+        <section class="publications-section">
             <div class="container">
                 <h2 class="section-title">Related Publications</h2>
                 
-                <div class="publication fade-in-up">
-                    <p><strong>Yu Han</strong>, Xinyue Ye, Kayode Atoba, Pallab Mozumder, Changjie Chen, Bastian van den Bout, Cees van Westen (2024). <a href="https://doi.org/10.1016/j.cities.2024.104953">Retreat from flood zones: Simulating land use changes in response to compound flood risk in coastal communities</a>. <i>Cities</i>, 149, 104953.</p>
-                </div>
-                <div class="publication fade-in-up">
-                    <p><strong>Yu Han</strong>, Haifeng Jia, Changqing Xu, Marija Bockarjova, Cees van Westen, Luigi Lombardo (2023). <a href="https://doi.org/10.1016/j.jenvman.2023.119690">Unveiling spatial inequalities: Exploring county-level disaster damages and social vulnerability on public disaster assistance in contiguous US</a>. <i>Journal of Environmental Management</i>, 351, 119690</p>
-                </div>
+                <ul class="publication-list">
+                    <li class="publication-item">
+                        <p><strong>Yu Han</strong>, Xinyue Ye, Kayode Atoba, Pallab Mozumder, Changjie Chen, Bastian van den Bout, Cees van Westen (2024). <a href="https://doi.org/10.1016/j.cities.2024.104953">Retreat from flood zones: Simulating land use changes in response to compound flood risk in coastal communities</a>. <i>Cities</i>, 149, 104953.</p>
+                    </li>
 
-                <div class="publication fade-in-up">
-                    <p>Wei Zhai, Mengyang Liu, <strong>Yu Han</strong> (2024). <a href="https://www.sciencedirect.com/science/article/pii/S0264275124004748">Dynamic neighborhood isolation and resilience during the pandemic in America's 50 largest cities</a>. <i>Cities</i>, 149, 104953.</i>.</p>
-                </div>
+                    <li class="publication-item">
+                        <p><strong>Yu Han</strong>, Haifeng Jia, Changqing Xu, Marija Bockarjova, Cees van Westen, Luigi Lombardo (2023). <a href="https://doi.org/10.1016/j.jenvman.2023.119690">Unveiling spatial inequalities: Exploring county-level disaster damages and social vulnerability on public disaster assistance in contiguous US</a>. <i>Journal of Environmental Management</i>, 351, 119690.</p>
+                    </li>
 
-                <div class="publication fade-in-up">
-                    <p><strong>Yu Han</strong>, Liang Mao, Xuqi Chen, Wei Zhai, Zhong-Ren Peng, Pallab Mozumder (2021). <a href="https://onlinelibrary.wiley.com/doi/10.1111/risa.13854">Agent-based Modeling to Evaluate Human–Environment Interactions in Community Flood Risk Mitigation</a>. <i>Risk Analysis</i>, 46, 101321.</i>.</p>
-                </div>
+                    <li class="publication-item">
+                        <p>Wei Zhai, Mengyang Liu, <strong>Yu Han</strong> (2024). <a href="https://www.sciencedirect.com/science/article/pii/S0264275124004748">Dynamic neighborhood isolation and resilience during the pandemic in America's 50 largest cities</a>. <i>Cities</i>, 153, 105260.</p>
+                    </li>
 
-                <div class="publication fade-in-up">
-                    <p>Wei Zhai, Xueyin Bai, Yu Shi, <strong>Yu Han</strong>, Zhong-Ren Peng, Chaolin Gu (2019). <a href="https://doi.org/10.1016/j.compenvurbsys.2018.11.008">Beyond Word2vec: An approach for urban functional region extraction and identification by combining Place2vec and POIs</a>. <i>Computers, Environment and Urban Systems</i>, 46, 101321.</i>.</p>
-                </div>
+                    <li class="publication-item">
+                        <p><strong>Yu Han</strong>, Liang Mao, Xuqi Chen, Wei Zhai, Zhong-Ren Peng, Pallab Mozumder (2021). <a href="https://onlinelibrary.wiley.com/doi/10.1111/risa.13854">Agent-based Modeling to Evaluate Human—Environment Interactions in Community Flood Risk Mitigation</a>. <i>Risk Analysis</i>, 46, 101321.</p>
+                    </li>
 
-                
+                    <li class="publication-item">
+                        <p>Wei Zhai, Xueyin Bai, Yu Shi, <strong>Yu Han</strong>, Zhong-Ren Peng, Chaolin Gu (2019). <a href="https://doi.org/10.1016/j.compenvurbsys.2018.11.008">Beyond Word2vec: An approach for urban functional region extraction and identification by combining Place2vec and POIs</a>. <i>Computers, Environment and Urban Systems</i>.</p>
+                    </li>
+                </ul>
             </div>
         </section>
     </main>
@@ -399,7 +396,6 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
         const mobileToggle = document.getElementById('mobile-toggle');
         const navMenu = document.getElementById('nav-menu');
 
@@ -407,31 +403,19 @@
             navMenu.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('nav a');
-        navLinks.forEach(link => {
+        document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
             });
         });
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                }
-            });
-        }, observerOptions);
-
-        // Observe publications for animation
-        document.querySelectorAll('.publication, .content-text').forEach(el => {
-            observer.observe(el);
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 0) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
     </script>
 </body>

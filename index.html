@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yu Han - Research Associate in Climate Adaptation & Transport Resilience at University of Cambridge">
     <title>Yu Han - Academic Portfolio</title>
     <style>
         * {
@@ -12,372 +13,455 @@
         }
 
         :root {
-            --primary-color: #3a0ca3;
-            --secondary-color: #80ed99;
-            --accent-color: #e74c3c;
-            --text-dark: #2c3e50;
-            --text-light: #7f8c8d;
-            --bg-light: #f8f9fa;
-            --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.2);
+            /* Color System - Academic Purple Theme */
+            --theme-color: #b509ac;
+            --theme-hover: #8b078a;
+            --text-color: #111111;
+            --text-secondary: #666666;
+            --bg-color: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --border-color: #e0e0e0;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--white);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            font-size: 16px;
         }
 
-        /* Header and Navigation */
+        /* Container System */
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 960px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                max-width: 720px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: 540px;
+                padding: 0 1rem;
+            }
+        }
+
+        /* Header - Sticky Navigation */
         header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            padding: 1rem 0;
-            position: fixed;
+            position: sticky;
             top: 0;
-            width: 100%;
+            background: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
             z-index: 1000;
+            transition: box-shadow 0.3s ease;
+        }
+
+        header.scrolled {
             box-shadow: var(--shadow);
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .nav-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 0;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
             text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--theme-color);
         }
 
         nav ul {
             display: flex;
             list-style: none;
             gap: 2rem;
+            margin: 0;
         }
 
         nav a {
-            color: var(--white);
-            text-decoration: none;
+            font-size: 0.875rem;
             font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
         }
 
-        nav a:hover, nav a.active {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+        nav a:hover,
+        nav a.active {
+            color: var(--theme-color);
         }
 
-        .mobile-menu-toggle {
+        .mobile-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
             padding: 0.5rem;
         }
 
-        .mobile-menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--white);
+        .mobile-toggle span {
+            width: 22px;
+            height: 2px;
+            background: var(--text-color);
             margin: 3px 0;
             transition: 0.3s;
         }
 
-        /* Main Content */
-        main {
-            margin-top: 80px;
-            min-height: calc(100vh - 80px);
+        /* Profile Section */
+        .profile-section {
+            padding: 4rem 0 3rem;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--bg-light) 0%, var(--white) 100%);
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .profile-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow-hover);
-            border: 5px solid var(--white);
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background: var(--secondary-color);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-        }
-
-        .btn:hover {
-            background: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--secondary-color);
-            border: 2px solid var(--secondary-color);
-        }
-
-        .btn-outline:hover {
-            background: var(--secondary-color);
-            color: var(--white);
-        }
-
-        /* Content Sections */
-        .section {
-            padding: 4rem 0;
-        }
-
-        .section:nth-child(even) {
-            background-color: var(--bg-light);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary-color);
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            text-align: center;
-            color: var(--text-light);
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Cards Grid */
-        .cards-grid {
+        .profile-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .card {
-            background: var(--white);
-            border-radius: 15px;
-            padding: 3rem;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .card-icon {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-            border-radius: 15px; /* Changed from 50% to make it rectangular */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 2rem;
-            overflow: hidden;
-            padding: 5px; /* Optional: adds some padding around the image */
-        }
-        .card-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px; /* Optional: slight rounding of the image itself */
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .card p {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Bio Section */
-        .bio-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 200px 1fr;
             gap: 3rem;
             align-items: start;
         }
 
-        .bio-image {
-            width: 100%;
-            border-radius: 15px;
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
             box-shadow: var(--shadow);
         }
 
-        .bio-text p {
-            margin-bottom: 1.5rem;
+        .profile-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .profile-subtitle {
             font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--text-dark);
-        }
-
-        /* Publications */
-        .publication {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 10px;
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+            line-height: 1.6;
         }
 
-        .publication:hover {
-            transform: translateX(10px);
+        .profile-bio {
+            font-size: 1rem;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-top: 1.5rem;
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            font-size: 2.3rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--theme-color);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--theme-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn-primary:hover {
+            background: var(--theme-hover);
+            transform: translateY(-2px);
             box-shadow: var(--shadow-hover);
         }
 
-        .publication-title {
+        /* Section Styling */
+        section {
+            padding: 4rem 0;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--bg-secondary);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            color: var(--text-color);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        /* Research Cards */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .research-card {
+            background: var(--bg-color);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .research-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--theme-color);
+        }
+
+        .research-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+        }
+
+        .research-card h3 {
+            font-size: 1.3rem;
             font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
         }
 
-        .publication-authors {
-            color: var(--text-light);
+        .research-card p {
             font-size: 0.95rem;
-            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
         }
 
-        .publication-journal {
-            font-style: italic;
-            color: var(--secondary-color);
+        .research-link {
+            display: inline-block;
+            color: var(--theme-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
 
-        /* Teaching Cards */
-        .teaching-card {
-            background: var(--white);
-            border-radius: 15px;
-            overflow: hidden;
+        .research-link:hover {
+            color: var(--theme-hover);
+            text-decoration: underline;
+        }
+
+        /* Publications List */
+        .publication-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .publication-item {
+            background: var(--bg-color);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--theme-color);
+            transition: all 0.3s ease;
+        }
+
+        .publication-item:hover {
             box-shadow: var(--shadow);
+            transform: translateX(4px);
+        }
+
+        .publication-item p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .publication-item strong {
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .publication-item a {
+            color: var(--theme-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .publication-item a:hover {
+            color: var(--theme-hover);
+            text-decoration: underline;
+        }
+
+        .publication-item i {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .view-all {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Teaching Grid */
+        .teaching-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .teaching-card {
+            background: var(--bg-color);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
             transition: all 0.3s ease;
         }
 
         .teaching-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
             box-shadow: var(--shadow-hover);
         }
 
-        .teaching-card-image {
+        .teaching-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .teaching-image {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
         }
 
-        .teaching-card-content {
+        .teaching-content {
             padding: 1.5rem;
         }
 
-        .teaching-card h3 {
-            color: var(--primary-color);
+        .teaching-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .teaching-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
             margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .teaching-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
         }
 
         /* Contact Section */
-        .contact-info {
-            text-align: center;
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
+        .contact-box {
             max-width: 600px;
             margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-color);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
         }
 
-        .contact-info h3 {
-            color: var(--primary-color);
+        .contact-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .contact-box p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
             margin-bottom: 1rem;
         }
 
-        .contact-info p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-info a {
-            color: var(--secondary-color);
+        .contact-box a {
+            color: var(--theme-color);
             text-decoration: none;
             font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        .contact-info a:hover {
+        .contact-box a:hover {
+            color: var(--theme-hover);
             text-decoration: underline;
         }
 
         /* Footer */
         footer {
-            background: var(--primary-color);
-            color: var(--white);
-            text-align: center;
+            background: var(--text-color);
+            color: white;
             padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-container {
-                padding: 0 1rem;
+            .profile-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .profile-image {
+                margin: 0 auto;
             }
 
             nav ul {
@@ -386,127 +470,89 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: var(--primary-color);
+                background: var(--bg-color);
                 flex-direction: column;
                 padding: 1rem;
-                box-shadow: var(--shadow);
+                border-bottom: 1px solid var(--border-color);
+                gap: 0;
             }
 
             nav ul.active {
                 display: flex;
             }
 
-            .mobile-menu-toggle {
+            nav li {
+                padding: 0.75rem 0;
+            }
+
+            .mobile-toggle {
                 display: flex;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .profile-content h1 {
+                font-size: 2rem;
             }
 
-            .hero-subtitle {
-                font-size: 1.1rem;
+            section {
+                padding: 3rem 0;
             }
 
-            .bio-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .cards-grid {
+            .research-grid,
+            .teaching-grid {
                 grid-template-columns: 1fr;
             }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
         }
 
-        @media (max-width: 480px) {
-            .hero {
-                padding: 2rem 0;
-            }
-
-            .section {
-                padding: 2rem 0;
-            }
-
-            .profile-photo {
-                width: 150px;
-                height: 150px;
-            }
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Active navigation highlighting */
-        .nav-section {
-            scroll-margin-top: 100px;
+        .mt-2 {
+            margin-top: 2rem;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="nav-container">
-            <a href="#home" class="logo">Yu Han</a>
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#research" class="nav-link">Research</a></li>
-                    <li><a href="#teaching" class="nav-link">Teaching</a></li>
-                    <li><a href="#publications" class="nav-link">Publications</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu-toggle" id="mobile-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+    <header id="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#home" class="logo">Yu Han</a>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#research">Research</a></li>
+                        <li><a href="#publications">Publications</a></li>
+                        <li><a href="#teaching">Teaching</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-toggle" id="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero nav-section">
+        <!-- Profile Section -->
+        <section id="home" class="profile-section">
             <div class="container">
-                <div class="hero-content fade-in-up">
-                    <img src="images/self-scholar.jpg" alt="Yu Han" class="profile-photo">
-                    <h1>Yu Han</h1>
-                    <p class="hero-subtitle">Research Associate in Climate Adaptation & Transport Resilience<br>University of Cambridge</p>
-                    <div class="cta-buttons">
-                        <a href="#about" class="btn">Learn More</a>
-                        <a href="cv/Resume_YuHAN.pdf" class="btn btn-outline" download>Download CV</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <div class="profile-grid">
+                    <img src="images/Yu_1423.jpg" alt="Yu Han" class="profile-image">
+                    <div class="profile-content">
+                        <h1>Yu Han</h1>
+                        <p class="profile-subtitle">Research Associate, Department of Land Economy<br>University of Cambridge</p>
+                        
+                        <div class="profile-bio">
+                            <p>I develop human-centered computational methods to evaluate community risks from natural disasters. My research focuses on climate adaptation, transport resilience, and disaster risk assessment using agent-based modeling, machine learning, and geospatial analysis.</p>
+                            
+                            <p>Currently on the job market seeking roles in climate adaptation, urban planning, and coastal risk assessment.</p>
+                        </div>
 
+<<<<<<< HEAD
         <!-- About Section -->
         <section id="about" class="section nav-section">
             <div class="container">
@@ -522,142 +568,137 @@
                         
                         <p>My work has been published in prestigious journals such as Risk Analysis, Journal of Environmental Management, and Computers, Environment, and Urban Systems, among others.</p>
                         <p>In my spare time, I enjoy running, family time, and traveling.</p>
+=======
+                        <a href="cv/Resume_YuHAN.pdf" class="btn-primary" download>Download CV</a>
+
+                        <div class="contact-info">
+                            <p><strong>Email:</strong> <a href="mailto:hanyu.bit@gmail.com">hanyu.bit@gmail.com</a></p>
+                            <p><strong>Office:</strong> 17 Mill Lane, Cambridge, UK, CB2 1RX</p>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="https://scholar.google.com/citations?user=oy7GClQAAAAJ&hl=en" target="_blank" title="Google Scholar">🎓</a>
+                            <a href="mailto:hanyu.bit@gmail.com" title="Email">✉️</a>
+                        </div>
+>>>>>>> 13c11f9 (Update website apperance)
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Research Section -->
-        <section id="research" class="section nav-section">
+        <section id="research">
             <div class="container">
-                <h2 class="section-title">Research Areas</h2>
-                <p class="section-subtitle">My research develops data-driven techniques and micro-level urban simulation models to explore interactions between social and natural systems under compound climate hazards.</p>
+                <h2 class="section-title">Research</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">My research develops data-driven techniques and micro-level urban simulation models to explore interactions between social and natural systems under compound climate hazards.</p>
                 
-                <div class="cards-grid">
-                    <div class="card">
-                        <div class="card-icon"> 
-                            <img src="images/pics/Flood.jpg" alt="Climate Adaptation">
-                        </div>
+                <div class="research-grid">
+                    <div class="research-card">
+                        <img src="images/pics/Flood.jpg" alt="Disaster Resilience" class="research-icon">
                         <h3>Disaster Resilience & Adaptation</h3>
                         <p>Developing computational methods to assess community risks from natural disasters and evaluate adaptation strategies using agent-based models and geospatial analysis.</p>
-                        <div style="margin-top: 1.5rem;">
-                            <a href="adaptation.html" class="btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Learn More</a>
-                        </div>
+                        <a href="adaptation.html" class="research-link">Learn more →</a>
                     </div>
                     
-                    <div class="card">
-                        <div class="card-icon"> 
-                            <img src="images/pics/Transportation.jpg" alt="Transport Resilience">
-                        </div>
+                    <div class="research-card">
+                        <img src="images/pics/Transportation.jpg" alt="Transport Systems" class="research-icon">
                         <h3>Resilient Transport Systems</h3>
                         <p>Modeling travel behaviors and daily mobility under disaster scenarios to quantify cascading impacts and promote resilient transport systems.</p>
-                        <div style="margin-top: 1.5rem;">
-                            <a href="urbanresilience.html" class="btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Learn More</a>
-                        </div>
+                        <a href="urbanresilience.html" class="research-link">Learn more →</a>
                     </div>
-
-                    <div class="card">
-                        <div class="card-icon"> 
-                            <img src="images/pics/AI.jpg" alt="Data Analytics">
-                        </div>
+                    
+                    <div class="research-card">
+                        <img src="images/pics/AI.jpg" alt="Data Analytics" class="research-icon">
                         <h3>Data-Driven Risk Assessment</h3>
                         <p>Leveraging machine learning, AI, and open geospatial tools to measure climate change impacts and inform sustainable urban planning decisions.</p>
-                        <div style="margin-top: 1.5rem;">
-                            <a href="datadrivenrisk.html" class="btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Teaching Section -->
-        
-        <!-- Teaching Section -->
-        <section id="teaching" class="section nav-section">
-            <div class="container">
-                <h2 class="section-title">Teaching</h2>
-                <p class="section-subtitle">Creating inclusive learning environments that promote critical thinking across traditional disciplinary boundaries.</p>
-                
-                <div class="cards-grid">
-                    <div class="teaching-card">
-                        <a href="TeachExperience.html#disaster-risk-management" style="text-decoration: none; color: inherit;">
-                            <img src="images/course1.jpg" alt="Teaching Experience" class="teaching-card-image">
-                            <div class="teaching-card-content">
-                                <h3>Disaster Risk Management</h3>
-                                <p><strong>University of Twente</strong> • Co-Instructor</p>
-                                <p>Multidisciplinary analysis of risk and applications in disaster management decision-making, covering hazards, vulnerabilities, and adaptation strategies.</p>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <div class="teaching-card">
-                        <a href="TeachExperience.html#global-challenge-local-actions" style="text-decoration: none; color: inherit;">
-                            <img src="images/course2.jpg" alt="Planned Courses" class="teaching-card-image">
-                            <div class="teaching-card-content">
-                                <h3>Global Challenge, Local Actions</h3>
-                                <p><strong>University of Twente</strong> • Project Tutor</p>
-                                <p>Graduate course addressing 21st century global challenges through interdisciplinary approaches and local adaptation strategies.</p>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <div class="teaching-card">
-                        <a href="TeachExperience.html#land-use-transportation-modeling" style="text-decoration: none; color: inherit;">
-                            <img src="images/course3-2.jpg" alt="Land Use Transportation" class="teaching-card-image">
-                            <div class="teaching-card-content">
-                                <h3>Land Use and Transportation Modeling</h3>
-                                <p><strong>University of Florida</strong> • Co-Instructor</p>
-                                <p>Graduate course on modeling principles, travel demand analysis, and activity-based models with hands-on lab sessions.</p>
-                            </div>
-                        </a>
+                        <a href="datadrivenrisk.html" class="research-link">Learn more →</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Publications Section -->
-        <section id="publications" class="section nav-section">
+        <section id="publications">
             <div class="container">
                 <h2 class="section-title">Selected Publications</h2>
-                <p class="section-subtitle">Recent research contributions in climate adaptation, urban resilience, and risk assessment.</p>
-
-                <div class="publication fade-in-up">
-                    <p> Xinmeng Shan, <strong>Yu Han</strong>, Jiahong Wen, Hengzhi Hu, Jiao Wang, Guotao Zhang, Paolo Scussolini, Qian Ke, Mengya Li, Jun Wang (2025). <a href="https://doi.org/10.1016/j.jenvman.2025.125155">Integrating nature-based solutions for compound flood risk mitigation in China: A case study of Shanghai</a>. <i>Journal of Environmental Management</i>, 380</p>
-                </div>
-
-                <div class="publication fade-in-up">
-                    <p> Changjie Chen(*), <strong>Yu Han</strong>, Andrea Galinski, Christian Calle, Jeffery Carney, Xinyue Ye, Cees van Westen (2025). <a href="https://doi.org/10.1177/0739456X251316185">Integrating urban digital twins with cloudbased geospatial dashboards for coastal resilience planning: A case study in Florida</a>. <i>Journal of Planning Education and Research</i></p>
-                </div>
-
-                <div class="publication fade-in-up">
-                    <p><strong>Yu Han</strong>, Wei Zhai, Pallab Mozumder, Cees van Westen, Changjie Chen (2025). <a href="https://doi.org/10.1016/j.tbs.2024.100933">Modeling evacuation activities amid compound hazards: Insights from hurricane Irma in Southeast Florida</a>. <i>Travel Behaviour and Society</i>, 38, 100933</p>
-                </div>
-
-                <div class="publication fade-in-up">
-                    <p><strong>Yu Han</strong>, Xinyue Ye, Chunwu Zhu (2024). <a href="https://link.springer.com/article/10.1007/s44212-024-00061-9">The Unequal Impact of Disasters: Assessing the Interplay Between Social Vulnerability, Public Assistance, Flood Insurance, and Migration in the U.S</a>. <i>Urban Informatics</i>, 3, 30</p>
-                </div>
-
-
-                <div class="publication fade-in-up">
-                    <p><strong>Yu Han</strong>, Xinyue Ye, Kayode Atoba, Pallab Mozumder, Changjie Chen, Bastian van den Bout, Cees van Westen (2024). <a href="https://doi.org/10.1016/j.cities.2024.104953">Retreat from flood zones: Simulating land use changes in response to compound flood risk in coastal communities</a>. <i>Cities</i>, 149, 104953</p>
-                </div>
-
-                <div class="publication fade-in-up">
-                    <p><strong>Yu Han</strong>, Haifeng Jia, Changqing Xu, Marija Bockarjova, Cees van Westen, Luigi Lombardo (2023). <a href="https://doi.org/10.1016/j.jenvman.2023.119690">Unveiling spatial inequalities: Exploring county-level disaster damages and social vulnerability on public disaster assistance in contiguous US</a>. <i>Journal of Environmental Management</i>, 351, 119690</p>
-                </div>
                 
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="https://scholar.google.com/citations?user=oy7GClQAAAAJ&hl=en" class="btn" target="_blank">View All Publications</a>
+                <ul class="publication-list">
+                    <li class="publication-item">
+                        <p>Xinmeng Shan, <strong>Yu Han</strong>, Jiahong Wen, et al. (2025). <a href="https://doi.org/10.1016/j.jenvman.2025.125155">Integrating nature-based solutions for compound flood risk mitigation in China: A case study of Shanghai</a>. <i>Journal of Environmental Management</i>, 380</p>
+                    </li>
+
+                    <li class="publication-item">
+                        <p>Changjie Chen(*), <strong>Yu Han</strong>, Andrea Galinski, et al. (2025). <a href="https://doi.org/10.1177/0739456X251316185">Integrating urban digital twins with cloudbased geospatial dashboards for coastal resilience planning: A case study in Florida</a>. <i>Journal of Planning Education and Research</i></p>
+                    </li>
+
+                    <li class="publication-item">
+                        <p><strong>Yu Han</strong>, Wei Zhai, Pallab Mozumder, Cees van Westen, Changjie Chen (2025). <a href="https://doi.org/10.1016/j.tbs.2024.100933">Modeling evacuation activities amid compound hazards: Insights from hurricane Irma in Southeast Florida</a>. <i>Travel Behaviour and Society</i>, 38, 100933</p>
+                    </li>
+
+                    <li class="publication-item">
+                        <p><strong>Yu Han</strong>, Xinyue Ye, Chunwu Zhu (2024). <a href="https://link.springer.com/article/10.1007/s44212-024-00061-9">The Unequal Impact of Disasters: Assessing the Interplay Between Social Vulnerability, Public Assistance, Flood Insurance, and Migration in the U.S</a>. <i>Urban Informatics</i>, 3, 30</p>
+                    </li>
+
+                    <li class="publication-item">
+                        <p><strong>Yu Han</strong>, Xinyue Ye, Kayode Atoba, et al. (2024). <a href="https://doi.org/10.1016/j.cities.2024.104953">Retreat from flood zones: Simulating land use changes in response to compound flood risk in coastal communities</a>. <i>Cities</i>, 149, 104953</p>
+                    </li>
+                </ul>
+
+                <div class="view-all">
+                    <a href="https://scholar.google.com/citations?user=oy7GClQAAAAJ&hl=en" class="btn-primary" target="_blank">View All Publications</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching Section -->
+        <section id="teaching">
+            <div class="container">
+                <h2 class="section-title">Teaching</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">Creating inclusive learning environments that promote critical thinking across traditional disciplinary boundaries.</p>
+                
+                <div class="teaching-grid">
+                    <div class="teaching-card">
+                        <a href="teachexperience.html#disaster-risk-management">
+                            <img src="images/course1.jpg" alt="Disaster Risk Management" class="teaching-image">
+                            <div class="teaching-content">
+                                <h3>Disaster Risk Management</h3>
+                                <p class="teaching-meta">University of Twente • Co-Instructor • Fall 2023</p>
+                                <p>Multidisciplinary analysis of risk and applications in disaster management decision-making.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="teaching-card">
+                        <a href="teachexperience.html#global-challenge-local-actions">
+                            <img src="images/course2.jpg" alt="Global Challenges" class="teaching-image">
+                            <div class="teaching-content">
+                                <h3>Global Challenge, Local Actions</h3>
+                                <p class="teaching-meta">University of Twente • Project Tutor • Spring 2024</p>
+                                <p>Graduate course addressing 21st century global challenges through interdisciplinary approaches.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="teaching-card">
+                        <a href="teachexperience.html#land-use-transportation-modeling">
+                            <img src="images/course3-2.jpg" alt="Transportation Modeling" class="teaching-image">
+                            <div class="teaching-content">
+                                <h3>Land Use and Transportation Modeling</h3>
+                                <p class="teaching-meta">University of Florida • Co-Instructor • Spring 2019</p>
+                                <p>Graduate course on modeling principles and activity-based models with hands-on labs.</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section nav-section">
+        <section id="contact">
             <div class="container">
-                <h2 class="section-title">Get in Touch</h2>
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
+                <h2 class="section-title text-center">Contact</h2>
+                <div class="contact-box">
+                    <h3>Get in Touch</h3>
                     <p>I'm always interested in discussing research collaborations, academic opportunities, and potential projects in climate adaptation and urban resilience.</p>
                     <p><strong>Email:</strong> <a href="mailto:hanyu.bit@gmail.com">hanyu.bit@gmail.com</a></p>
                     <p><strong>Institution:</strong> University of Cambridge<br>Department of Land Economy</p>
@@ -681,20 +722,20 @@
             navMenu.classList.toggle('active');
         });
 
-        // Smooth scrolling and active navigation
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('.nav-section');
-
-        // Close mobile menu when clicking on a link
-        navLinks.forEach(link => {
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
             });
         });
 
-        // Update active navigation based on scroll position
+        // Active navigation on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a');
+
         window.addEventListener('scroll', () => {
             let current = '';
+            
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
@@ -709,25 +750,14 @@
                     link.classList.add('active');
                 }
             });
-        });
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                }
-            });
-        }, observerOptions);
-
-        // Observe cards and sections
-        document.querySelectorAll('.card, .publication, .teaching-card').forEach(el => {
-            observer.observe(el);
+            // Add shadow to header on scroll
+            const header = document.getElementById('header');
+            if (window.scrollY > 0) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
     </script>
 </body>

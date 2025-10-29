@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Climate Adaptation & Hazard Mitigation Planning - Yu Han</title>
+    <meta name="description" content="Climate Adaptation & Hazard Mitigation Planning - Yu Han's Research">
+    <title>Disaster Resilience & Adaptation - Yu Han</title>
     <style>
         * {
             margin: 0;
@@ -12,418 +13,411 @@
         }
 
         :root {
-            --primary-color: #3a0ca3;
-            --secondary-color: #80ed99;
-            --accent-color: #e74c3c;
-            --text-dark: #2c3e50;
-            --text-light: #7f8c8d;
-            --bg-light: #f8f9fa;
-            --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.2);
+            /* Color System - Academic Purple Theme */
+            --theme-color: #b509ac;
+            --theme-hover: #8b078a;
+            --text-color: #111111;
+            --text-secondary: #666666;
+            --bg-color: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --border-color: #e0e0e0;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--white);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            font-size: 16px;
         }
 
+        /* Container System */
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-        /* Header and Navigation */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 960px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                max-width: 720px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: 540px;
+                padding: 0 1rem;
+            }
+        }
+
+        /* Header - Sticky Navigation */
         header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            padding: 1rem 0;
-            position: fixed;
+            position: sticky;
             top: 0;
-            width: 100%;
+            background: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
             z-index: 1000;
+            transition: box-shadow 0.3s ease;
+        }
+
+        header.scrolled {
             box-shadow: var(--shadow);
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .nav-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 0;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
             text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--theme-color);
         }
 
         nav ul {
             display: flex;
             list-style: none;
             gap: 2rem;
+            margin: 0;
         }
 
         nav a {
-            color: var(--white);
-            text-decoration: none;
+            font-size: 0.875rem;
             font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
         }
 
         nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+            color: var(--theme-color);
         }
 
-        .mobile-menu-toggle {
+        .back-link {
+            font-size: 0.875rem;
+            color: var(--theme-color);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--theme-hover);
+        }
+
+        .mobile-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
             padding: 0.5rem;
         }
 
-        .mobile-menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--white);
+        .mobile-toggle span {
+            width: 22px;
+            height: 2px;
+            background: var(--text-color);
             margin: 3px 0;
             transition: 0.3s;
         }
 
-        /* Main Content */
-        main {
-            margin-top: 80px;
-            min-height: calc(100vh - 80px);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
         /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--bg-light) 0%, var(--white) 100%);
-            padding: 4rem 0;
-            text-align: center;
+        .hero-section {
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .hero-image {
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             height: 300px;
             object-fit: cover;
-            border-radius: 15px;
-            box-shadow: var(--shadow-hover);
-            margin-bottom: 2rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-        }
-
-        /* Back Button */
-        .back-button {
-            position: absolute;
-            top: 100px;
-            left: 2rem;
-            background: var(--secondary-color);
-            color: var(--white);
-            text-decoration: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 0 auto 2rem;
+            display: block;
             box-shadow: var(--shadow);
-            z-index: 100;
         }
 
-        .back-button:hover {
-            background: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            text-align: center;
         }
 
         /* Content Section */
-        .content {
+        .content-section {
             padding: 4rem 0;
         }
 
-        .content-text {
-            max-width: 900px;
+        .content-wrapper {
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .content-text p {
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--text-dark);
-        }
-        .content-text ul,
-        .content-text ol {
-            margin-bottom: 2rem;
-            padding-left: 1.5rem; /* keeps bullets/numbers indented nicely */
+        .content-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-color);
         }
 
-        .content-text li {
-            font-size: 1.1rem;      /* same as your paragraph */
-            line-height: 1.7;       /* same as your paragraph */
-            color: var(--text-dark);
-            margin-bottom: 0.8rem;  /* adds a bit of spacing between list items */
+        .content-text p {
+            margin-bottom: 1.5rem;
         }
+
         .research-image {
-            display: block;
-            margin: 3rem auto;
-            max-width: 600px;
             width: 100%;
+            max-width: 600px;
             height: auto;
-            border-radius: 15px;
+            border-radius: 8px;
+            margin: 3rem auto;
+            display: block;
             box-shadow: var(--shadow);
         }
 
         /* Publications Section */
-        .publications {
-            background-color: var(--bg-light);
+        .publications-section {
             padding: 4rem 0;
+            background-color: var(--bg-secondary);
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            color: var(--text-color);
             text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary-color);
-        }
-
-        .publication {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            max-width: 900px;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .publication-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+
+        .publication-item {
+            background: var(--bg-color);
+            padding: 1.5rem;
             margin-bottom: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--theme-color);
+            transition: all 0.3s ease;
         }
 
-        .publication:hover {
-            transform: translateX(10px);
-            box-shadow: var(--shadow-hover);
+        .publication-item:hover {
+            box-shadow: var(--shadow);
+            transform: translateX(4px);
         }
 
-        .publication p {
+        .publication-item p {
+            font-size: 0.95rem;
+            line-height: 1.7;
             margin: 0;
-            line-height: 1.6;
         }
 
-        .publication a {
-            color: var(--secondary-color);
-            text-decoration: none;
+        .publication-item strong {
+            color: var(--text-color);
             font-weight: 600;
         }
 
-        .publication a:hover {
+        .publication-item a {
+            color: var(--theme-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .publication-item a:hover {
+            color: var(--theme-hover);
             text-decoration: underline;
         }
 
-        .publication strong {
-            color: var(--primary-color);
-        }
-
-        .publication i {
-            color: var(--text-light);
+        .publication-item i {
+            color: var(--text-secondary);
             font-style: italic;
         }
 
         /* Footer */
         footer {
-            background: var(--primary-color);
-            color: var(--white);
-            text-align: center;
+            background: var(--text-color);
+            color: white;
             padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-container {
-                padding: 0 1rem;
-            }
-
             nav ul {
                 display: none;
                 position: absolute;
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: var(--primary-color);
+                background: var(--bg-color);
                 flex-direction: column;
                 padding: 1rem;
-                box-shadow: var(--shadow);
+                border-bottom: 1px solid var(--border-color);
+                gap: 0;
             }
 
             nav ul.active {
                 display: flex;
             }
 
-            .mobile-menu-toggle {
+            nav li {
+                padding: 0.75rem 0;
+            }
+
+            .mobile-toggle {
                 display: flex;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-
-            .back-button {
-                left: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 2rem 0;
-            }
-
-            .content {
-                padding: 2rem 0;
-            }
-
-            .publications {
-                padding: 2rem 0;
-            }
-
-            .hero h1 {
+            .hero-title {
                 font-size: 2rem;
             }
-        }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+            .hero-image {
+                height: 200px;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            .content-section {
+                padding: 3rem 0;
             }
-        }
 
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
+            .publications-section {
+                padding: 3rem 0;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-button">← Back to Home</a>
-    
-    <header>
-        <div class="nav-container">
-            <a href="index.html" class="logo">Yu Han</a>
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="index.html">About Me</a></li>
-                    <li><a href="index.html#research">Research</a></li>
-                    <li><a href="index.html#teaching">Teaching</a></li>
-                    <li><a href="index.html#publications">Publications</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu-toggle" id="mobile-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+    <header id="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">Yu Han</a>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#research">Research</a></li>
+                        <li><a href="index.html#publications">Publications</a></li>
+                        <li><a href="index.html#teaching">Teaching</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-toggle" id="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section class="hero">
+        <section class="hero-section">
             <div class="container">
                 <img src="./images/pics/1adaptation.jpg" alt="Climate Adaptation Research" class="hero-image">
-                <h1>Disaster Resilience & Adaptation</h1>
+                <h1 class="hero-title">Disaster Resilience & Adaptation</h1>
             </div>
         </section>
 
         <!-- Content Section -->
-        <section class="content">
+        <section class="content-section">
             <div class="container">
-                <div class="content-text fade-in-up">
-                    <p>Climate related hazards, such as floods, coastal storm surges, and heatwaves, increasingly threaten the safety and reliability of urban systems. Across the globe, we have witnessed how extreme weather can damage infrastructure, disrupt transportation systems, and affect local economies. These challenges are often compounded, where a city might face flooding followed by a heatwave, or a hurricane coupled with power outages, creating complex scenarios for policymakers. The lack of understanding such impacts to our cities creates significant obstacles for governments at all levels to develop effective adaptation plans and build resilient communities. On the other hand, while the direct impacts of hazards such as floods, hurricanes, and landslides are well-documented, the indirect consequences—resulting from the interdependencies between natural and social systems are often overlooked or underestimated. These cascading risks can amplify disaster impacts, spreading across systems due to changes in hazard patterns, human exposure, economic shifts, and disruptions in supply chains. My research seeks to address these gaps by examining how such cascading effects propagate across social, environmental, and infrastructure systems.
-                    </p>
-                    <p>Key research questions to be explored in my research include:</p>
-                    <ol>
-                      <li>How do human risk mitigation behaviors, infrastructure investments, or land-use policies influence community resilience from natural hazards?</li>
-                      <li>How do adaptation policies alter a community’s resilience to natural hazards over years?</li>
-                    </ol>
-                    
-                    <p>
-                    To quantify these systemic risks, I leverage advanced agent-based models, computational methods, and open geospatial tools to analyze the impacts of compound hazards—such as storm surges and flooding—on vulnerable communities. By integrating open data and geoinformation techniques, my work contributes to the development of a robust framework for assessing and managing the interconnected risks posed by climate-driven extreme events.</p>
-                    
-                    <p>In addition, my research explores the role of adaptation planning in reducing the vulnerability of urban and rural communities to climate change. With rapid urbanization and changing climate, the urgency for effective adaptation strategies has never been higher. Through interdisciplinary approaches and scenario analyses, I assess the effectiveness of various mitigation and adaptation policies. Relying on machine learning and artificial intelligence (AI) techniques, I simulate the impact of climate change and natural hazards on communities, aiming to provide actionable insights for policymakers. The ultimate goal is to identify and design strategies that enhance resilience, inform sustainable urban planning, and guide proactive adaptation in the face of climate uncertainty.</p>
+                <a href="index.html#research" class="back-link">← Back to Research</a>
+                
+                <div class="content-wrapper">
+                    <div class="content-text">
+                        <p>Catastrophic natural disasters present formidable challenges to build resilient communities. While the direct impacts of hazards such as floods, hurricanes, and landslides are well-documented, the indirect consequences—resulting from the complex interdependencies between natural systems and human infrastructure—are often overlooked or underestimated. These cascading risks can amplify disaster impacts, spreading across systems due to changes in hazard patterns, human exposure, economic shifts, and disruptions in supply chains. My research seeks to address these gaps by examining how such cascading effects propagate across social, environmental, and infrastructure systems.</p>
+                        
+                        <p>To quantify these systemic risks, I leverage advanced agent-based models, computational methods, and open geospatial tools to analyze the impacts of compound hazards—such as storm surges and flooding—on vulnerable communities. By integrating open data and geoinformation techniques, my work contributes to the development of a robust framework for assessing and managing the interconnected risks posed by climate-driven extreme events.</p>
+                        
+                        <p>In addition, my research explores the role of adaptation planning in reducing the vulnerability of urban and rural communities to climate change. With rapid urbanization and growing populations, the urgency for effective adaptation strategies has never been higher. Through interdisciplinary approaches and scenario analyses, I assess the effectiveness of various mitigation and adaptation policies. Using machine learning and artificial intelligence (AI), I simulate the impact of climate change and natural hazards on communities, aiming to provide actionable insights for policymakers. The ultimate goal is to identify and design strategies that enhance resilience, inform sustainable urban planning, and guide proactive adaptation in the face of climate uncertainty.</p>
 
-                    <img src="images/research1.jpg" alt="Systemic Risk Research" class="research-image">
+                        <img src="images/research1.jpg" alt="Systemic Risk Research" class="research-image">
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Publications Section -->
-        <section class="publications">
+        <section class="publications-section">
             <div class="container">
                 <h2 class="section-title">Related Publications</h2>
                 
-                <div class="publication fade-in-up">
-                    <p>Zan Wang, Shengwen Qi, <strong>Yu Han</strong>, Bowen Zheng, Yu Zou, Yue Yang (2024). <a href="https://ieeexplore.ieee.org/document/10787013">Delimitation of Landslide Areas in Optical Remote Sensing Images across Regions via Deep Transfer Learning</a>. <i>IEEE Access</i>.</p>
-                </div>
+                <ul class="publication-list">
+                    <li class="publication-item">
+                        <p>Zan Wang, Shengwen Qi, <strong>Yu Han</strong>, Bowen Zheng, Yu Zou, Yue Yang (2024). <a href="https://ieeexplore.ieee.org/document/10787013">Delimitation of Landslide Areas in Optical Remote Sensing Images across Regions via Deep Transfer Learning</a>. <i>IEEE Access</i>.</p>
+                    </li>
 
-                <div class="publication fade-in-up">
-                    <p><strong>Yu Han</strong>, Xinyue Ye, Chunwu Zhu (2024). <a href="https://link.springer.com/article/10.1007/s44212-024-00061-9">The Unequal Impact of Disasters: Assessing the Interplay Between Social Vulnerability, Public Assistance, Flood Insurance, and Migration in the U.S</a>. <i>Urban Informatics</i>, 3, 30.</p>
-                </div>
+                    <li class="publication-item">
+                        <p><strong>Yu Han</strong>, Xinyue Ye, Chunwu Zhu (2024). <a href="https://link.springer.com/article/10.1007/s44212-024-00061-9">The Unequal Impact of Disasters: Assessing the Interplay Between Social Vulnerability, Public Assistance, Flood Insurance, and Migration in the U.S</a>. <i>Urban Informatics</i>, 3, 30.</p>
+                    </li>
 
-                <div class="publication fade-in-up">
-                    <p><strong>Yu Han</strong>, Haifeng Jia, Changqing Xu, Marija Bockarjova, Cees van Westen, Luigi Lombardo (2023). <a href="https://doi.org/10.1016/j.jenvman.2023.119690">Unveiling spatial inequalities: Exploring county-level disaster damages and social vulnerability on public disaster assistance in contiguous US</a>. <i>Journal of Environmental Management</i>, 351, 119690.</p>
-                </div>
+                    <li class="publication-item">
+                        <p><strong>Yu Han</strong>, Haifeng Jia, Changqing Xu, Marija Bockarjova, Cees van Westen, Luigi Lombardo (2023). <a href="https://doi.org/10.1016/j.jenvman.2023.119690">Unveiling spatial inequalities: Exploring county-level disaster damages and social vulnerability on public disaster assistance in contiguous US</a>. <i>Journal of Environmental Management</i>, 351, 119690.</p>
+                    </li>
 
-                <div class="publication fade-in-up">
-                    <p><strong>Yu Han</strong>, Xinyue Ye (2022). <a href="https://doi.org/10.1016/j.uclim.2022.101321">Examining the effects of flood damage, federal hazard mitigation assistance, and flood insurance policy on population migration in the conterminous US between 2010 and 2019</a>. <i>Urban Climate</i>, 46, 101321.</p>
-                </div>
+                    <li class="publication-item">
+                        <p><strong>Yu Han</strong>, Xinyue Ye (2022). <a href="https://doi.org/10.1016/j.uclim.2022.101321">Examining the effects of flood damage, federal hazard mitigation assistance, and flood insurance policy on population migration in the conterminous US between 2010 and 2019</a>. <i>Urban Climate</i>, 46, 101321.</p>
+                    </li>
 
-                <div class="publication fade-in-up">
-                    <p><strong>Yu Han</strong>, Xinyue Ye, Xiao Huang (2021). <a href="https://journal.hep.com.cn/laf/EN/10.15302/J-LAF-1-030031">Adaptation Planning and Hazard Mitigation for Interdependent Infrastructure Systems to Enhance Urban Resilience Under Climate Change</a>. <i>Landscape Architecture Frontiers</i>, 46, 101321.</p>
-                </div>
+                    <li class="publication-item">
+                        <p><strong>Yu Han</strong>, Xinyue Ye, Xiao Huang (2021). <a href="https://journal.hep.com.cn/laf/EN/10.15302/J-LAF-1-030031">Adaptation Planning and Hazard Mitigation for Interdependent Infrastructure Systems to Enhance Urban Resilience Under Climate Change</a>. <i>Landscape Architecture Frontiers</i>, 46, 101321.</p>
+                    </li>
 
-                <div class="publication fade-in-up">
-                    <p><strong>Yu Han</strong>, Pallab Mozumder (2021). <a href="https://doi.org/10.1016/j.crm.2021.100305">Building-level Adaptation Analysis under uncertain Sea-Level Rise</a>. <i>Climate Risk Management</i>, 35, 100305.</p>
-                </div>
+                    <li class="publication-item">
+                        <p><strong>Yu Han</strong>, Pallab Mozumder (2021). <a href="https://doi.org/10.1016/j.crm.2021.100305">Building-level Adaptation Analysis under uncertain Sea-Level Rise</a>. <i>Climate Risk Management</i>, 35, 100305.</p>
+                    </li>
 
-                <div class="publication fade-in-up">
-                    <p><strong>Yu Han</strong>, Changjie Chen, Zhong-Ren Peng, Pallab Mozumder (2021). <a href="https://doi.org/10.1007/s11116-021-10172-w">Evaluating impacts of coastal flooding on the transportation system using an activity-based travel demand model: a case study in Miami-Dade County, FL</a>. <i>Transportation</i>, 35, 100305.</p>
-                </div>
+                    <li class="publication-item">
+                        <p><strong>Yu Han</strong>, Changjie Chen, Zhong-Ren Peng, Pallab Mozumder (2021). <a href="https://doi.org/10.1007/s11116-021-10172-w">Evaluating impacts of coastal flooding on the transportation system using an activity-based travel demand model: a case study in Miami-Dade County, FL</a>. <i>Transportation</i>, 35, 100305.</p>
+                    </li>
 
-                <div class="publication fade-in-up">
-                    <p><strong>Yu Han</strong>, Pallab Mozumder (2021). <a href="https://www.sciencedirect.com/science/article/pii/S2210670721006880">Risk-based flood adaptation assessment for large-scale buildings in coastal cities using cloud computing</a>. <i>Sustainable Cities and Society</i>, 76, 103415.</p>
-                </div>
+                    <li class="publication-item">
+                        <p><strong>Yu Han</strong>, Pallab Mozumder (2021). <a href="https://www.sciencedirect.com/science/article/pii/S2210670721006880">Risk-based flood adaptation assessment for large-scale buildings in coastal cities using cloud computing</a>. <i>Sustainable Cities and Society</i>, 76, 103415.</p>
+                    </li>
 
-                <div class="publication fade-in-up">
-                    <p><strong>Yu Han</strong>, Kevin Ash, Liang Mao, Zhong-Ren Peng (2020). <a href="https://link.springer.com/article/10.1007/s10584-020-02802-6">An agent-based model for community flood adaptation under uncertain sea-level rise</a>. <i>Climatic Change</i>, 76, 103415.</p>
-                </div>
+                    <li class="publication-item">
+                        <p><strong>Yu Han</strong>, Kevin Ash, Liang Mao, Zhong-Ren Peng (2020). <a href="https://link.springer.com/article/10.1007/s10584-020-02802-6">An agent-based model for community flood adaptation under uncertain sea-level rise</a>. <i>Climatic Change</i>, 76, 103415.</p>
+                    </li>
+                </ul>
             </div>
         </section>
     </main>
@@ -443,31 +437,21 @@
             navMenu.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('nav a');
-        navLinks.forEach(link => {
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
             });
         });
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                }
-            });
-        }, observerOptions);
-
-        // Observe publications for animation
-        document.querySelectorAll('.publication, .content-text').forEach(el => {
-            observer.observe(el);
+        // Add shadow to header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 0) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
     </script>
 </body>
