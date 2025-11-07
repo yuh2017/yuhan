@@ -13,16 +13,13 @@
         }
 
         :root {
-            /* Color System - Academic Purple Theme */
-            --theme-color: #b509ac;
-            --theme-hover: #8b078a;
-            --text-color: #111111;
-            --text-secondary: #666666;
+            --theme-color: #1a73e8;
+            --theme-hover: #1557b0;
+            --text-color: #202124;
+            --text-secondary: #5f6368;
             --bg-color: #ffffff;
             --bg-secondary: #f8f9fa;
-            --border-color: #e0e0e0;
-            --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.12);
+            --border-color: #dadce0;
         }
 
         html {
@@ -30,8 +27,8 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.7;
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
             color: var(--text-color);
             background-color: var(--bg-color);
             font-size: 16px;
@@ -45,15 +42,11 @@
         }
 
         @media (max-width: 1200px) {
-            .container {
-                max-width: 960px;
-            }
+            .container { max-width: 960px; }
         }
 
         @media (max-width: 992px) {
-            .container {
-                max-width: 720px;
-            }
+            .container { max-width: 720px; }
         }
 
         @media (max-width: 768px) {
@@ -63,167 +56,184 @@
             }
         }
 
-        /* Header - Sticky Navigation */
+        /* Header - Simple Top Bar */
         header {
-            position: sticky;
-            top: 0;
             background: var(--bg-color);
             border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            transition: box-shadow 0.3s ease;
-        }
-
-        header.scrolled {
-            box-shadow: var(--shadow);
+            padding: 12px 0;
         }
 
         .nav-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 20px;
+            font-weight: 500;
             color: var(--text-color);
             text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .logo:hover {
-            color: var(--theme-color);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 24px;
             margin: 0;
         }
 
         nav a {
-            font-size: 0.875rem;
-            font-weight: 500;
+            font-size: 14px;
             color: var(--text-secondary);
             text-decoration: none;
-            transition: color 0.3s ease;
-            letter-spacing: 0.5px;
+            transition: color 0.2s ease;
         }
 
         nav a:hover {
             color: var(--theme-color);
         }
 
-        .back-link {
-            font-size: 0.875rem;
-            color: var(--theme-color);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-            transition: color 0.3s ease;
-        }
-
-        .back-link:hover {
-            color: var(--theme-hover);
-        }
-
         .mobile-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
-            padding: 0.5rem;
+            padding: 8px;
         }
 
         .mobile-toggle span {
-            width: 22px;
+            width: 20px;
             height: 2px;
             background: var(--text-color);
-            margin: 3px 0;
+            margin: 2px 0;
             transition: 0.3s;
         }
 
-        /* Hero Section */
-        .hero-section {
-            padding: 3rem 0 2rem;
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        /* Page Title */
+        .page-title {
+            font-size: 38px;
+            font-weight: 400;
+            color: var(--text-color);
+            margin-bottom: 8px;
+            padding-bottom: 16px;
             border-bottom: 1px solid var(--border-color);
         }
 
-        .hero-image {
-            width: 100%;
-            max-width: 900px;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin: 0 auto 2rem;
-            display: block;
-            box-shadow: var(--shadow);
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            font-size: 18px;
+            color: var(--theme-color);
+            text-decoration: none;
+            margin-bottom: 24px;
+            transition: color 0.2s ease;
         }
 
-        .hero-title {
-            font-size: 2.5rem;
-            font-weight: 700;
+        .back-link:hover {
+            color: var(--theme-hover);
+            text-decoration: underline;
+        }
+
+        /* Research Overview Section */
+        .research-overview {
+            margin-bottom: 48px;
+        }
+
+        .section-heading {
+            font-size: 24px;
+            font-weight: 500;
             color: var(--text-color);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        /* Content Section */
-        .content-section {
-            padding: 4rem 0;
-        }
-
-        .content-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
+            margin-bottom: 16px;
+            margin-top: 32px;
         }
 
         .content-text {
-            font-size: 1rem;
-            line-height: 1.8;
+            font-size: 18px;
+            line-height: 1.7;
             color: var(--text-color);
+            margin-bottom: 16px;
         }
 
         .content-text p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 16px;
         }
 
+        /* Image */
         .research-image {
             width: 100%;
-            max-width: 600px;
+            max-width: 700px;
             height: auto;
-            border-radius: 8px;
-            margin: 3rem auto;
+            border: 1px solid var(--border-color);
+            margin: 24px 0;
             display: block;
-            box-shadow: var(--shadow);
+        }
+
+        /* Research Gallery */
+        .research-gallery {
+            margin: 48px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 24px;
+        }
+
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            object-position: center;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-caption {
+            margin-top: 12px;
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        .gallery-caption a {
+            color: var(--theme-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .gallery-caption a:hover {
+            color: var(--theme-hover);
+            text-decoration: underline;
         }
 
         /* Publications Section */
         .publications-section {
-            padding: 4rem 0;
+            padding: 2rem 0;
+            margin-top: 32px;
             background-color: var(--bg-secondary);
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 2.5rem;
-            color: var(--text-color);
-            text-align: center;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .publication-list {
             list-style: none;
-            max-width: 800px;
-            margin: 2rem auto 0;
+            max-width: 1000px;
+            margin: 2rem 0 0;
         }
 
         .publication-item {
@@ -241,20 +251,20 @@
         }
 
         .publication-item p {
-            font-size: 0.95rem;
-            line-height: 1.7;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-color);
             margin: 0;
         }
 
         .publication-item strong {
-            color: var(--text-color);
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .publication-item a {
             color: var(--theme-color);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
 
         .publication-item a:hover {
@@ -267,21 +277,47 @@
             font-style: italic;
         }
 
+        /* Highlight Box */
+        .highlight-box {
+            background-color: var(--bg-secondary);
+            border-left: 4px solid var(--theme-color);
+            padding: 16px 20px;
+            margin: 24px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
         /* Footer */
         footer {
-            background: var(--text-color);
-            color: white;
-            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 64px;
+            padding: 24px 0;
             text-align: center;
         }
 
         footer p {
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
             nav ul {
                 display: none;
                 position: absolute;
@@ -290,7 +326,7 @@
                 right: 0;
                 background: var(--bg-color);
                 flex-direction: column;
-                padding: 1rem;
+                padding: 16px;
                 border-bottom: 1px solid var(--border-color);
                 gap: 0;
             }
@@ -300,27 +336,28 @@
             }
 
             nav li {
-                padding: 0.75rem 0;
+                padding: 12px 0;
             }
 
             .mobile-toggle {
                 display: flex;
             }
 
-            .hero-title {
-                font-size: 2rem;
+            .page-title {
+                font-size: 24px;
             }
 
-            .hero-image {
-                height: 200px;
+            .section-heading {
+                font-size: 18px;
             }
 
-            .content-section {
-                padding: 3rem 0;
+            main {
+                padding: 24px 0;
             }
 
-            .publications-section {
-                padding: 3rem 0;
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
             }
         }
     </style>
@@ -349,41 +386,82 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="container">
-                <img src="./images/pics/1adaptation.jpg" alt="Climate Adaptation Research" class="hero-image">
-                <h1 class="hero-title">Disaster Resilience & Adaptation</h1>
-            </div>
-        </section>
+        <div class="container">
+            <a href="index.html#research" class="back-link">← Back to Research</a>
+            
+            <h1 class="page-title">Disaster Resilience & Adaptation</h1>
 
-        <!-- Content Section -->
-        <section class="content-section">
-            <div class="container">
-                <a href="index.html#research" class="back-link">← Back to Research</a>
-                
-                <div class="content-wrapper">
-                    <div class="content-text">
-                        <p>Catastrophic natural disasters present formidable challenges to build resilient communities. While the direct impacts of hazards such as floods, hurricanes, and landslides are well-documented, the indirect consequences—resulting from the complex interdependencies between natural systems and human infrastructure—are often overlooked or underestimated. These cascading risks can amplify disaster impacts, spreading across systems due to changes in hazard patterns, human exposure, economic shifts, and disruptions in supply chains. My research seeks to address these gaps by examining how such cascading effects propagate across social, environmental, and infrastructure systems.</p>
-                        
-                        <p>To quantify these systemic risks, I leverage advanced agent-based models, computational methods, and open geospatial tools to analyze the impacts of compound hazards—such as storm surges and flooding—on vulnerable communities. By integrating open data and geoinformation techniques, my work contributes to the development of a robust framework for assessing and managing the interconnected risks posed by climate-driven extreme events.</p>
-                        
-                        <p>In addition, my research explores the role of adaptation planning in reducing the vulnerability of urban and rural communities to climate change. With rapid urbanization and growing populations, the urgency for effective adaptation strategies has never been higher. Through interdisciplinary approaches and scenario analyses, I assess the effectiveness of various mitigation and adaptation policies. Using machine learning and artificial intelligence (AI), I simulate the impact of climate change and natural hazards on communities, aiming to provide actionable insights for policymakers. The ultimate goal is to identify and design strategies that enhance resilience, inform sustainable urban planning, and guide proactive adaptation in the face of climate uncertainty.</p>
-
-                        <img src="images/research1.jpg" alt="Systemic Risk Research" class="research-image">
-                    </div>
+            <!-- Research Overview -->
+            <section class="research-overview">
+                <div class="content-text">
+                    <p>Catastrophic natural disasters present formidable challenges to build resilient communities. While the direct impacts of hazards such as floods, hurricanes, and landslides are well-documented, the indirect consequences—resulting from the complex interdependencies between natural systems and human infrastructure—are often overlooked or underestimated. These cascading risks can amplify disaster impacts, spreading across systems due to changes in hazard patterns, human exposure, economic shifts, and disruptions in supply chains. My research seeks to address these gaps by examining how such cascading effects propagate across social, environmental, and infrastructure systems.</p>
+                    
+                    <p>To quantify these systemic risks, I leverage advanced agent-based models, computational methods, and open geospatial tools to analyze the impacts of compound hazards—such as storm surges and flooding—on vulnerable communities. By integrating open data and geoinformation techniques, my work contributes to the development of a robust framework for assessing and managing the interconnected risks posed by climate-driven extreme events.</p>
+                    
+                    <p>In addition, my research explores the role of adaptation planning in reducing the vulnerability of urban and rural communities to climate change. With rapid urbanization and growing populations, the urgency for effective adaptation strategies has never been higher. Through interdisciplinary approaches and scenario analyses, I assess the effectiveness of various mitigation and adaptation policies. Using machine learning and artificial intelligence (AI), I simulate the impact of climate change and natural hazards on communities, aiming to provide actionable insights for policymakers. The ultimate goal is to identify and design strategies that enhance resilience, inform sustainable urban planning, and guide proactive adaptation in the face of climate uncertainty.</p>
                 </div>
-            </div>
-        </section>
 
-        <!-- Publications Section -->
-        <section class="publications-section">
-            <div class="container">
-                <h2 class="section-title">Related Publications</h2>
+                <!-- <img src="images/research1.jpg" alt="Systemic Risk Research" class="research-image"> -->
+            </section>
+
+            <!-- Research Highlights Gallery -->
+            <section class="research-gallery">
+                <h2 class="section-heading">Research Highlights</h2>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/gallery/figure1_adaptation.jpg" alt="Urban Digital Twin for Coastal Resilience Planning">
+                        <p class="gallery-caption">
+                            <a href="https://doi.org/10.1177/0739456X251316185" target="_blank">Integrating Urban Digital Twin with Cloud-Based Geospatial Dashboard for Coastal Resilience Planning: A Case Study in Florida</a>
+                        </p>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/gallery/figure2_adaptation.jpg" alt="Social Inequality in Disaster Response">
+                        <p class="gallery-caption">
+                            <a href="https://link.springer.com/article/10.1007/s44212-024-00061-9" target="_blank">Examining the unequal impact of disasters through the interplay of social vulnerability, public assistance, flood insurance, and migration patterns in the U.S.</a>
+                        </p>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/gallery/figure3_adaptation.jpg" alt="Spatial Inequalities in Disaster Assistance">
+                        <p class="gallery-caption">
+                            <a href="https://doi.org/10.1016/j.jenvman.2023.119690" target="_blank">Spatial inequalities in county-level disaster damages and the distribution of public disaster assistance across the contiguous United States.</a>
+                        </p>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/gallery/figure4_adaptation.jpg" alt="Impacts of Storm Surge Flooding on Transportation System">
+                        <p class="gallery-caption">
+                            <a href="https://doi.org/10.1007/s11116-021-10172-w" target="_blank">Activity-based travel demand model evaluating coastal flooding impacts on transportation systems in Miami-Dade County.</a>
+                        </p>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/gallery/figure5_adaptation.jpg" alt="Building-Level Adaptation">
+                        <p class="gallery-caption">
+                            <a href="https://www.sciencedirect.com/science/article/pii/S2210670721006880" target="_blank">Cloud computing-based risk assessment for large-scale building flood adaptation in coastal cities.</a>
+                        </p>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/gallery/figure6_adaptation.jpg" alt="Transportation System Impacts">
+                        <p class="gallery-caption">
+                            <a href="https://www.sciencedirect.com/science/article/pii/S2210670721006880" target="_blank">Cloud computing-based risk assessment for large-scale building flood adaptation in coastal cities.</a>
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Publications Section -->
+            <section class="publications-section">
+                <h2 class="section-heading">Related Publications</h2>
                 
                 <ul class="publication-list">
                     <li class="publication-item">
-                        <p>Zan Wang, Shengwen Qi, <strong>Yu Han</strong>, Bowen Zheng, Yu Zou, Yue Yang (2024). <a href="https://ieeexplore.ieee.org/document/10787013">Delimitation of Landslide Areas in Optical Remote Sensing Images across Regions via Deep Transfer Learning</a>. <i>IEEE Access</i>.</p>
+
+                        <p>Changjie Chen1, <strong>Yu Han</strong>, Andrea Galinski, Christian Calle, Jeffery Carney, Xinyue Ye, Cees van Westen (2025). <a href="https://doi.org/10.1177/0739456X251316185">Integrating Urban Digital Twin with Cloud-Based Geospatial Dashboard for Coastal Resilience Planning: A Case Study in Florida</a>. <i>Journal of Planning Education and Research</i>.</p>
                     </li>
 
                     <li class="publication-item">
@@ -418,8 +496,8 @@
                         <p><strong>Yu Han</strong>, Kevin Ash, Liang Mao, Zhong-Ren Peng (2020). <a href="https://link.springer.com/article/10.1007/s10584-020-02802-6">An agent-based model for community flood adaptation under uncertain sea-level rise</a>. <i>Climatic Change</i>, 76, 103415.</p>
                     </li>
                 </ul>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <footer>
@@ -442,16 +520,6 @@
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
             });
-        });
-
-        // Add shadow to header on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 0) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
         });
     </script>
 </body>

@@ -11,15 +11,16 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
 
         :root {
-            --theme-color: #b509ac;
-            --theme-hover: #8b078a;
-            --text-color: #111111;
-            --text-secondary: #666666;
+            --theme-color: #1a73e8;
+            --theme-hover: #1557b0;
+            --text-color: #202124;
+            --text-secondary: #5f6368;
             --bg-color: #ffffff;
             --bg-secondary: #f8f9fa;
-            --border-color: #e0e0e0;
+            --border-color: #dadce0;
             --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.12);
         }
@@ -110,14 +111,12 @@
         }
 
         .back-link {
-            font-size: 0.875rem;
+            display: inline-block;
+            font-size: 18px;
             color: var(--theme-color);
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-            transition: color 0.3s ease;
+            margin-bottom: 24px;
+            transition: color 0.2s ease;
         }
 
         .back-link:hover {
@@ -140,8 +139,13 @@
         }
 
         .hero-section {
-            padding: 3rem 0 2rem;
-            border-bottom: 1px solid var(--border-color);
+            padding: 40px 0 0px;
+        }
+
+        .hero-section .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .hero-image {
@@ -156,30 +160,44 @@
         }
 
         .hero-title {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 38px;
+            font-weight: 400;
             color: var(--text-color);
-            margin-bottom: 1rem;
-            text-align: center;
+            margin-bottom: 8px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: left;
         }
 
         .content-section {
-            padding: 4rem 0;
+            padding: 20px 0;
+        }
+
+        .content-section .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .content-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
+            width: 100%;
+            margin: 0;
+            padding: 0;
         }
 
         .content-text {
-            font-size: 1rem;
-            line-height: 1.8;
+            font-size: 18px;
+            line-height: 1.7;
             color: var(--text-color);
+            margin-bottom: 16px;
         }
 
         .content-text p {
             margin-bottom: 1.5rem;
+        }
+
+        .content-text p:last-child {
+            margin-bottom: 0;  /* Remove margin from last paragraph */
         }
 
         .research-image {
@@ -187,33 +205,107 @@
             max-width: 600px;
             height: auto;
             border-radius: 8px;
-            margin: 3rem auto;
+            margin: 2rem auto;
             display: block;
             box-shadow: var(--shadow);
         }
 
+        /* Research Gallery */
+        .research-gallery {
+            margin: 32px 0;  /* Reduced from 48px */
+        }
+
+        .research-gallery .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-top: 24px;
+            width: 100%;
+        }
+
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 400px;  /* Fixed height for consistent image size */
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);  /* Slight zoom on hover */
+        }
+
+        /* Remove center-single styling since we want a 2x2 grid */
+        .gallery-caption {
+            padding: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+            background: var(--bg-color);
+            text-align: center;
+        }
+
+        .gallery-caption a {
+            color: var(--theme-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .gallery-caption a:hover {
+            color: var(--theme-hover);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .gallery-item.center-single {
+                max-width: 100%;
+            }
+        }
+
         .publications-section {
-            padding: 4rem 0;
+            padding: 2rem 0;
+            margin-top: 32px;
             background-color: var(--bg-secondary);
         }
 
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 2.5rem;
+        .section-heading {
+            font-size: 24px;
+            font-weight: 500;
             color: var(--text-color);
-            text-align: center;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 16px;
+            margin-top: 32px;
+            text-align: left;
         }
 
         .publication-list {
             list-style: none;
-            max-width: 800px;
-            margin: 2rem auto 0;
+            max-width: 1000px;
+            margin: 2rem 0 0;
         }
 
         .publication-item {
@@ -307,9 +399,9 @@
                 padding: 3rem 0;
             }
 
-            .publications-section {
-                padding: 3rem 0;
-            }
+            /* .publications-section {
+                padding: 0rem 0;
+            } */
         }
     </style>
 </head>
@@ -339,22 +431,57 @@
     <main>
         <section class="hero-section">
             <div class="container">
-                <img src="./images/pics/3.artificialintelligence.jpg" alt="Data-Driven Risk Research" class="hero-image">
+                <a href="index.html#research" class="back-link">← Back to Research</a>
                 <h1 class="hero-title">Data-Driven Risk Assessment</h1>
             </div>
         </section>
 
         <section class="content-section">
             <div class="container">
-                <a href="index.html#research" class="back-link">← Back to Research</a>
-                
                 <div class="content-wrapper">
                     <div class="content-text">
                         <p>Relying on the asset-level data, household surveys, human activity data, and natural hazard data, I am applying data-driven techniques to explore future trends of urban development under the impacts of climate change and integrate them into my Agent-Based Modeling framework. I aim to explore innovative methodologies that leverage artificial intelligence (AI) to synthesize population data and simulate population activities. For example, I am using large language models (LLM) and machine learning-based approaches to generate individual activity patterns and assess behavioral during and after disasters, enabling a more comprehensive assessment of dynamic human exposure to compound and cascading events. The insights gained from this theme, particularly the understanding of individual and household responses to hazards, will directly inform the development of more realistic and human-centric adaptation strategies. The Findings will be visualized and communicated through the digital twin based approaches.</p>
                         
                         <p>Meanwhile, I leverage cutting-edge methods from computer science, spatial statistics, and urban planning to address critical urban environmental issues and promote social resilience. This research involves extracting actionable insights from large-scale urban data using advanced data science techniques. By developing new geospatial models and analytical tools, my work focuses on improving the collection, processing, visualization, and analysis of urban data across diverse contexts—both in urban centers and rural areas. These tools are designed to support urban planning and management, with an emphasis on solving key social challenges such as inequality, vulnerability, and access to resources. Ultimately, my research aims to foster more resilient cities by providing innovative approaches to urban planning that prioritize sustainability, inclusivity, and adaptability.</p>
 
-                        <img src="images/research4.jpg" alt="Data Analytics Research" class="research-image">
+                        <!-- <img src="images/research4.jpg" alt="Data Analytics Research" class="research-image"> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Highlights Gallery -->
+        <section class="research-gallery">
+            <div class="container">
+                <h2 class="section-heading">Research Highlights</h2>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/gallery/figure1_datadriven.jpg" alt="County-level Disaster Damage Analysis">
+                        <p class="gallery-caption">
+                            <a href="https://doi.org/10.1016/j.jenvman.2023.119690" target="_blank">Spatial analysis of county-level disaster damages and social vulnerability in contiguous US</a>
+                        </p>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/gallery/figure2_datadriven.jpg" alt="Land Use Change Simulation">
+                        <p class="gallery-caption">
+                            <a href="https://doi.org/10.1016/j.cities.2024.104953" target="_blank">Simulating land use changes in response to compound flood risk in coastal communities</a>
+                        </p>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/gallery/figure3_datadriven.jpg" alt="Agent-based Modeling">
+                        <p class="gallery-caption">
+                            <a href="https://doi.org/10.1111/risa.13854" target="_blank">Agent-based modeling to evaluate human-environment interactions in community flood risk mitigation</a>
+                        </p>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/gallery/figure4_datadriven.jpg" alt="Deep Learning for Remote Sensing">
+                        <p class="gallery-caption">
+                            <a href="https://ieeexplore.ieee.org/document/10787013" target="_blank">Deep transfer learning for landslide detection in optical remote sensing images</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -362,9 +489,13 @@
 
         <section class="publications-section">
             <div class="container">
-                <h2 class="section-title">Related Publications</h2>
+                <h2 class="section-heading">Related Publications</h2>
                 
                 <ul class="publication-list">
+                    <li class="publication-item">
+                        <p>Zan Wang, Shengwen Qi, <strong>Yu Han</strong>, Bowen Zheng, Yu Zou, Yue Yang (2024). <a href="https://ieeexplore.ieee.org/document/10787013">Delimitation of Landslide Areas in Optical Remote Sensing Images across Regions via Deep Transfer Learning</a>. <i>IEEE Access</i>.</p>
+                    </li>
+                    
                     <li class="publication-item">
                         <p><strong>Yu Han</strong>, Xinyue Ye, Kayode Atoba, Pallab Mozumder, Changjie Chen, Bastian van den Bout, Cees van Westen (2024). <a href="https://doi.org/10.1016/j.cities.2024.104953">Retreat from flood zones: Simulating land use changes in response to compound flood risk in coastal communities</a>. <i>Cities</i>, 149, 104953.</p>
                     </li>

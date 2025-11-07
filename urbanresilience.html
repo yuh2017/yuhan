@@ -13,13 +13,13 @@
         }
 
         :root {
-            --theme-color: #b509ac;
-            --theme-hover: #8b078a;
-            --text-color: #111111;
-            --text-secondary: #666666;
+            --theme-color: #1a73e8;
+            --theme-hover: #1557b0;
+            --text-color: #202124;
+            --text-secondary: #5f6368;
             --bg-color: #ffffff;
             --bg-secondary: #f8f9fa;
-            --border-color: #e0e0e0;
+            --border-color: #dadce0;
             --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.12);
         }
@@ -29,201 +29,230 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.7;
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
             color: var(--text-color);
             background-color: var(--bg-color);
             font-size: 16px;
         }
 
+        /* Container System */
         .container {
-            max-width: 1140px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 24px;
         }
 
-        @media (max-width: 1200px) {
-            .container { max-width: 960px; }
-        }
-
-        @media (max-width: 992px) {
-            .container { max-width: 720px; }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                max-width: 540px;
-                padding: 0 1rem;
-            }
-        }
-
+        /* Header - Simple Top Bar */
         header {
-            position: sticky;
-            top: 0;
             background: var(--bg-color);
             border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            transition: box-shadow 0.3s ease;
-        }
-
-        header.scrolled {
-            box-shadow: var(--shadow);
+            padding: 12px 0;
         }
 
         .nav-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 20px;
+            font-weight: 500;
             color: var(--text-color);
             text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .logo:hover {
-            color: var(--theme-color);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 24px;
             margin: 0;
         }
 
         nav a {
-            font-size: 0.875rem;
-            font-weight: 500;
+            font-size: 14px;
             color: var(--text-secondary);
             text-decoration: none;
-            transition: color 0.3s ease;
-            letter-spacing: 0.5px;
+            transition: color 0.2s ease;
         }
 
         nav a:hover {
             color: var(--theme-color);
         }
 
-        .back-link {
-            font-size: 0.875rem;
-            color: var(--theme-color);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-            transition: color 0.3s ease;
-        }
-
-        .back-link:hover {
-            color: var(--theme-hover);
-        }
-
         .mobile-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
-            padding: 0.5rem;
+            padding: 8px;
         }
 
         .mobile-toggle span {
-            width: 22px;
+            width: 20px;
             height: 2px;
             background: var(--text-color);
-            margin: 3px 0;
+            margin: 2px 0;
             transition: 0.3s;
         }
 
-        .hero-section {
-            padding: 3rem 0 2rem;
-            border-bottom: 1px solid var(--border-color);
+        /* Main Content */
+        main {
+            padding: 40px 0;
         }
 
-        .hero-image {
-            width: 100%;
-            max-width: 900px;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin: 0 auto 2rem;
-            display: block;
-            box-shadow: var(--shadow);
-        }
-
-        .hero-title {
-            font-size: 2.5rem;
-            font-weight: 700;
+        /* Page Title */
+        .page-title {
+            font-size: 38px;
+            font-weight: 400;
             color: var(--text-color);
-            margin-bottom: 1rem;
-            text-align: center;
+            margin-bottom: 8px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+            margin-left: 0;
         }
 
-        .content-section {
-            padding: 4rem 0;
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            font-size: 18px;
+            color: var(--theme-color);
+            text-decoration: none;
+            margin-bottom: 24px;
+            transition: color 0.2s ease;
         }
 
-        .content-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
+        .back-link:hover {
+            color: var(--theme-hover);
+            text-decoration: underline;
         }
+
+        .section-heading {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--text-color);
+            margin-bottom: 16px;
+            margin-top: 32px;
+            margin-left: 0;
+            text-align: left;
+        }
+            
+
 
         .content-text {
-            font-size: 1rem;
-            line-height: 1.8;
+            font-size: 18px;
+            line-height: 1.7;
             color: var(--text-color);
+            margin-bottom: 16px;
         }
 
         .content-text p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 16px;
         }
 
         .content-text ol {
-            margin-bottom: 1.5rem;
+            margin-bottom: 16px;
             padding-left: 1.5rem;
         }
 
         .content-text li {
             margin-bottom: 0.8rem;
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
+        /* Image */
         .research-image {
             width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 8px;
-            margin: 3rem auto;
-            display: block;
-            box-shadow: var(--shadow);
-        }
-
-        .publications-section {
-            padding: 4rem 0;
-            background-color: var(--bg-secondary);
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 2.5rem;
-            color: var(--text-color);
-            text-align: center;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
             max-width: 800px;
+            height: auto;
+            border: 1px solid var(--border-color);
+            margin: 24px 0;
+            display: block;
+        }
+
+        /* Research Gallery */
+        .research-gallery {
+            margin: 48px 0;
+        }
+        .research-gallery,
+        .publications-section {
+            /* Use the parent .container horizontal padding for alignment.
+               Remove extra padding so headings line up with the page title. */
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .research-gallery .section-heading,
+        .publications-section .section-heading {
+            margin-left: 0;
+        }
+
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-top: 24px;
+            max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
         }
 
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            object-position: center;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item.center-single {
+            grid-column: 1 / -1;
+            max-width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gallery-caption {
+            margin-top: 12px;
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        .gallery-caption a {
+            color: var(--theme-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .gallery-caption a:hover {
+            color: var(--theme-hover);
+            text-decoration: underline;
+        }
+
+        /* Publications Section */
+        .publications-section {
+            padding: 2rem 0;
+            margin-top: 32px;
+            background-color: var(--bg-secondary);
+        }
+
         .publication-list {
             list-style: none;
-            max-width: 800px;
-            margin: 2rem auto 0;
+            max-width: 1000px;
+            margin: 2rem 0 0;
         }
 
         .publication-item {
@@ -241,20 +270,20 @@
         }
 
         .publication-item p {
-            font-size: 0.95rem;
-            line-height: 1.7;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-color);
             margin: 0;
         }
 
         .publication-item strong {
-            color: var(--text-color);
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .publication-item a {
             color: var(--theme-color);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
 
         .publication-item a:hover {
@@ -267,19 +296,33 @@
             font-style: italic;
         }
 
+        /* Footer */
         footer {
-            background: var(--text-color);
-            color: white;
-            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 64px;
+            padding: 24px 0;
             text-align: center;
         }
 
         footer p {
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
             nav ul {
                 display: none;
                 position: absolute;
@@ -288,7 +331,7 @@
                 right: 0;
                 background: var(--bg-color);
                 flex-direction: column;
-                padding: 1rem;
+                padding: 16px;
                 border-bottom: 1px solid var(--border-color);
                 gap: 0;
             }
@@ -298,27 +341,28 @@
             }
 
             nav li {
-                padding: 0.75rem 0;
+                padding: 12px 0;
             }
 
             .mobile-toggle {
                 display: flex;
             }
 
-            .hero-title {
-                font-size: 2rem;
+            .page-title {
+                font-size: 24px;
             }
 
-            .hero-image {
-                height: 200px;
+            .section-heading {
+                font-size: 18px;
             }
 
-            .content-section {
-                padding: 3rem 0;
+            main {
+                padding: 24px 0;
             }
 
-            .publications-section {
-                padding: 3rem 0;
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
             }
         }
     </style>
@@ -347,18 +391,13 @@
     </header>
 
     <main>
-        <section class="hero-section">
-            <div class="container">
-                <img src="./images/pics/2.resilience.jpg" alt="Transport Resilience Research" class="hero-image">
-                <h1 class="hero-title">Resilient Transport Systems</h1>
-            </div>
-        </section>
+        <div class="container">
+            <a href="index.html#research" class="back-link">← Back to Research</a>
+            
+            <h1 class="page-title">Resilient Transport Systems</h1>
 
-        <section class="content-section">
-            <div class="container">
-                <a href="index.html#research" class="back-link">← Back to Research</a>
-                
-                <div class="content-wrapper">
+            <!-- Research Overview -->
+            <section class="research-overview">
                     <div class="content-text">
                         <p>Urban resilience has become a central theme in addressing the challenges posed by climate change, rapid urbanization, and environmental changes. To support informed decision-making in this context, my research focuses on promoting the resilience and adaptability of urban transport systems in the face of climate change impacts. Utilizing an interdisciplinary approach, I will actively incorporate diverse data and methods and collaborate across disciplines to build a holistic understanding of transport resilience under climate change.</p>
                         
@@ -373,15 +412,41 @@
                         
                         <p>We will utilize scenario planning techniques to explore adaptive transport management strategies, infrastructure retrofitting, and policy interventions to pre-disaster evacuation and post-disaster recovery. For example, the NASA's Black Marble VIIRS nightlight imagery, together with other socioeconomic and human behavior data, will be applied to estimate evacuation and recovery rates of human activities from historical natural hazards on the spatial-temporal scales. The outcomes will be evaluated using the average commute disruption, areas of the city cut off by flooding, or ridership changes in public transit to inform future transportation planning. I will further pair these simulations with economic impact analysis to understand costs of transport disruptions and benefits of adaptation. For instance, I will use value of time lost in congestion, freight delays, or recovery expenditures — to illustrate the return on investing in resilience. Moreover, by adopting input-output analysis, I will further quantify direct and indirect economic loss due to transport outages to support evidence-based planning and risk management.</p>
 
-                        <img src="images/od_flows.jpg" alt="Transport Network Analysis" class="research-image">
+                        <!-- <img src="images/od_flows.jpg" alt="Transport Network Analysis" class="research-image"> -->
+                    </div>
+            </section>
+
+            <!-- Research Highlights Gallery -->
+            <section class="research-gallery">
+                <h2 class="section-heading">Research Highlights</h2>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/gallery/figure1_resilience.jpg" alt="Evacuation Modeling During Hurricane">
+                        <p class="gallery-caption">
+                            <a href="https://www.sciencedirect.com/science/article/pii/S2214367X24001960" target="_blank">Agent-based modeling of evacuation activities amid compound hazards during Hurricane Irma in Southeast Florida.</a>
+                        </p>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="images/gallery/figure2_resilience.jpg" alt="Coastal Flooding Impact on Transportation">
+                        <p class="gallery-caption">
+                            <a href="https://link.springer.com/article/10.1007/s11116-021-10172-w" target="_blank">Activity-based travel demand model evaluating coastal flooding impacts on transportation systems in Miami-Dade County.</a>
+                        </p>
+                    </div>
+
+                    <div class="gallery-item center-single">
+                        <img src="images/gallery/figure3_resilience.jpg" alt="Transport Network Resilience Analysis">
+                        <p class="gallery-caption">
+                            <a href="#" target="_blank">Commuting flow modeling for decarbonized and climate-resilient transport planning</a>
+                        </p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="publications-section">
-            <div class="container">
-                <h2 class="section-title">Related Publications</h2>
+            <!-- Publications Section -->
+            <section class="publications-section">
+                <h2 class="section-heading">Related Publications</h2>
                 
                 <ul class="publication-list">
                     <li class="publication-item">
@@ -392,8 +457,8 @@
                         <p><strong>Yu Han</strong>, Changjie Chen, Zhong-Ren Peng, Pallab Mozumder (2021). <a href="https://link.springer.com/article/10.1007/s11116-021-10172-w">Evaluating impacts of coastal flooding on the transportation system using an activity-based travel demand model: a case study in Miami-Dade County, FL</a>. <i>Transportation</i>.</p>
                     </li>
                 </ul>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <footer>
@@ -403,6 +468,7 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
         const mobileToggle = document.getElementById('mobile-toggle');
         const navMenu = document.getElementById('nav-menu');
 
@@ -410,19 +476,11 @@
             navMenu.classList.toggle('active');
         });
 
+        // Close mobile menu when clicking a link
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
             });
-        });
-
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 0) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
         });
     </script>
 </body>
