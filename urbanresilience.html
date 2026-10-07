@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="description" content="Resilient Transport Systems - Yu Han's Research">
     <title>Resilient Transport Systems - Yu Han</title>
     <style>
@@ -365,6 +366,11 @@
                 gap: 24px;
             }
         }
+        .project-video { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 8px; background: #202124; }
+        #urban-digital-twin { width: 100%; scroll-margin-top: 100px; }
+        .project-links { text-align: center; margin-top: 12px; }
+        .project-links a { color: var(--theme-color); }
+        @media (max-width: 768px) { .gallery-item.center-single { max-width: 100%; } }
     </style>
 </head>
 <body>
@@ -399,33 +405,38 @@
             <!-- Research Overview -->
             <section class="research-overview">
                     <div class="content-text">
-                        <h2>Advancing Resilient and Adaptive Transport Systems in Urban Planning</h2>
+                        <h2>Connecting Travel Behavior, Climate Risk, and Transport Adaptation</h2>
 
                         <p style="margin: 15px 0;">
-                            Urban resilience is a critical focus in addressing the multidimensional challenges posed by climate change, rapid urbanization, and environmental uncertainties. My research contributes to this by developing data-driven approaches to enhance the resilience and adaptability of urban transport systems under climate stress. Employing an interdisciplinary lens, I integrate urban analytics and environmental planning principles into an <strong>Agent-Based Modeling (ABM)</strong> framework that simulates human behavior during climate-induced disruptions and adaptation benefits on urban transport system for a changing climate.
+                            My transport research examines how <strong>land use, daily activities, and individual travel decisions</strong> shape the impacts of climate hazards on mobility. I combine activity-based travel demand modeling, agent-based simulation, and spatial analysis to connect disruption on transport networks with its consequences for people. My focus is on understanding how changing development patterns and climate risks affect travel demand, accessibility, and the options available for adaptation.
                         </p>
 
                         <h3 style="margin-top: 30px; margin-bottom: 15px;">Key Research Questions</h3>
                         <ul style="margin: 15px 0 15px 20px;">
-                            <li>How do individual travel behaviors change in response to hydroclimatic disruptions such as flooding or extreme heat?</li>
-                            <li>How can agent-based modeling be used to simulate and understand these behavioral dynamics at scale?</li>
-                            <li>What adaptive strategies and design interventions can urban planners employ to mitigate climate impacts on mobility networks?</li>
+                            <li>How do flooding and compound hazards disrupt daily mobility, and how do their effects vary across people and places?</li>
+                            <li>How can land-use and transport planning improve network resilience and access to activities under alternative socioeconomic and climate scenarios?</li>
                         </ul>
 
+                        <h3 style="margin-top: 30px; margin-bottom: 15px;">Flood Disruption and Evacuation Modeling</h3>
                         <p style="margin: 15px 0;">
-                            Using the open-source agent-based simulation framework <strong>MATSim</strong>, I develop large-scale simulations to assess transport disruption and resilience under various climate scenarios. By integrating <strong>OpenStreetMap</strong>, satellite imagery, and socioeconomic datasets, my research evaluates commuter behavior both before and after natural disasters, capturing the spatial-temporal dynamics of mobility under environmental stress.
+                            My published work in <em>Transportation</em> evaluates the impacts of coastal flooding on the Miami-Dade County transport system using an <strong>activity-based travel demand model</strong>. A related study in <em>Travel Behaviour and Society</em> models evacuation activities during Hurricane Irma in Southeast Florida, examining travel under compound hazards. These studies connect hazard conditions with individual activities and travel decisions, providing a basis for assessing disruption beyond damage to infrastructure alone.
                         </p>
 
                         <p style="margin: 15px 0;">
-                            This research adopts <strong>scenario planning techniques</strong> to explore interventions such as infrastructure retrofitting, adaptive transport management, and policy innovations for pre-disaster evacuation and post-disaster recovery. For example, NASA’s <strong>Black Marble VIIRS nightlight imagery</strong> is used alongside demographic and behavioral data to estimate evacuation patterns and recovery rates following extreme events.
+                            At the University of Twente, my work on the <strong>PARATUS project</strong> extended this interest to the indirect impacts of compound and cascading hazards on transport systems. I developed approaches using open data and impact chains, and contributed to a web-based stakeholder support tool for systemic disaster risk assessment.
+                        </p>
+
+                        <h3 style="margin-top: 30px; margin-bottom: 15px;">Current Work: From National Scenarios to Daily Mobility</h3>
+                        <p style="margin: 15px 0;">
+                            At Cambridge, I am developing an <strong>integrated land use and transport simulation framework</strong> within the <a href="https://dare.ac.uk/about-us/our-team/yu-han/" target="_blank" rel="noopener noreferrer">DARe project</a>, funded by UKRI and the Department for Transport. My current work links alternative national socioeconomic scenarios to local daily travel behaviors for agent-based transport simulation using <strong>MATSim</strong>.
                         </p>
 
                         <p style="margin: 15px 0;">
-                            Model outputs are evaluated using indicators such as commute delays, areas of the city affected by flooding, and shifts in public transit ridership. These evaluations support <strong>climate-resilient transportation planning</strong> and assist urban planners in designing systems that are robust to future climate uncertainties.
+                            This framework is designed for application to cities across the UK and can be adapted to case studies elsewhere where suitable travel survey data is available. It connects socioeconomic scenarios with local travel behavior and network dynamics, providing a basis for assessing mobility and climate-hazard exposure in different urban contexts. 
                         </p>
-
+                        <h3 style="margin-top: 30px; margin-bottom: 15px;">Research Directions: Evaluating Adaptation Benefits</h3>
                         <p style="margin: 15px 0;">
-                            To complement the mobility analysis, I aim to incorporate <strong>economic impact assessment</strong> tools to measure the costs associated with transport disruption. This includes estimating the value of lost time in congestion, commuting delays, and infrastructure recovery costs.  
+                            I aim to use this framework to compare how development patterns and transport adaptation measures affect mobility under changing climate conditions, with attention to differences in exposure and access across communities. My earlier work on <strong>life-cycle costs and benefits of freight transport projects</strong> also informs my interest in connecting regional development with economic impacts.
                         </p>
                         <!-- <img src="images/od_flows.jpg" alt="Transport Network Analysis" class="research-image"> -->
                     </div>
@@ -446,17 +457,18 @@
                     <div class="gallery-item">
                         <img src="images/gallery/figure2_resilience.jpg" alt="Coastal Flooding Impact on Transportation">
                         <p class="gallery-caption">
-                            <a href="https://www.sciencedirect.com/science/article/pii/S2214367X24001960" target="_blank">Activity-based travel demand model evaluating coastal flooding impacts on transportation systems in Miami-Dade County.</a>
+                            <a href="https://www.sciencedirect.com/science/article/pii/S2214367X24001960" target="_blank">Modeling evacuation activities amid compound hazards: Insights from Hurricane Irma in Southeast Florida.</a>
                         </p>
                     </div>
 
-                    <div class="gallery-item center-single">
-                        <img src="images/gallery/figure3_resilience.jpg" alt="Transport Network Resilience Analysis">
+                    <div class="gallery-item center-single" id="urban-digital-twin">
+                        <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/5h9-gwCaklM" title="An Urban Digital Twin for Flood and Extreme Heat Exposure Assessment: A Case Study in Cambridgeshire &amp; Peterborough" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         <p class="gallery-caption">
-                            <a href="#" target="_blank">Commuting flow modeling for decarbonized and climate-resilient transport planning</a>
+                            <a href="https://drive.google.com/file/d/15OlJ_wSbKocVs7t9u8bKbtX5ewGXgT2e/view" target="_blank" rel="noopener noreferrer">An Urban Digital Twin for Flood and Extreme Heat Exposure Assessment: A Case Study in Cambridgeshire &amp; Peterborough</a>
                         </p>
                     </div>
                 </div>
+                <p class="project-links"><a href="https://www.youtube.com/watch?v=5h9-gwCaklM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a> · <a href="https://drive.google.com/file/d/15OlJ_wSbKocVs7t9u8bKbtX5ewGXgT2e/view" target="_blank" rel="noopener noreferrer">View research poster</a></p>
             </section>
 
             <!-- Publications Section -->
@@ -478,7 +490,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Yu Han. All rights reserved.</p>
+            <p>&copy; 2026 Yu Han. All rights reserved.</p>
         </div>
     </footer>
 

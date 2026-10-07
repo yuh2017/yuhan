@@ -173,6 +173,30 @@
             line-height: 1.8;
         }
 
+        .bio-scroll {
+            max-height: 420px;
+            overflow-y: scroll;
+            scrollbar-gutter: stable;
+            scrollbar-width: auto;
+            scrollbar-color: var(--theme-color) var(--bg-secondary);
+            padding: 1.25rem 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .bio-scroll::-webkit-scrollbar { width: 10px; }
+        .bio-scroll::-webkit-scrollbar-track { background: var(--bg-secondary); }
+        .bio-scroll::-webkit-scrollbar-thumb { background: var(--theme-color); border-radius: 6px; }
+        .bio-scroll p + p, .bio-scroll h3 { margin-top: 1rem; }
+        .bio-scroll h3 { font-size: 1.1rem; line-height: 1.5; margin-bottom: .75rem; }
+        .bio-scroll:focus-visible { outline: 3px solid var(--theme-color); outline-offset: 4px; }
+        .bio-hint { font-size: .9rem; color: var(--text-secondary); margin-bottom: .75rem; }
+        .current-research { text-align: left; }
+        .current-research h2 { font-size: 1.5rem; margin-bottom: .75rem; }
+        .current-research p + p { margin-top: 1rem; }
+        .current-research a { color: var(--theme-color); }
+
         .contact-info {
             font-size: 18px;
             color: var(--text-secondary);
@@ -520,6 +544,7 @@
             margin-top: 2rem;
         }
     </style>
+    <link rel="stylesheet" href="assets/news.css">
 </head>
 <body>
     <header id="header">
@@ -529,6 +554,7 @@
                 <nav>
                     <ul id="nav-menu">
                         <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#news">News</a></li>
                         <li><a href="#research">Research</a></li>
                         <li><a href="#publications">Publications</a></li>
                         <li><a href="#teaching">Teaching</a></li>
@@ -553,38 +579,28 @@
                     <div class="profile-content">
                         <h1>Yu Han</h1>
                         <p class="profile-subtitle">Research Associate, Department of Land Economy<br>University of Cambridge</p> 
-                        <div class="profile-bio">
-                        <h2>About Me</h2>
-
-                        <p>
-                            I develop <strong>human-centered computational methods</strong> to evaluate community risks from natural disasters and support equitable climate adaptation. My research integrates <strong>agent-based modeling</strong>, <strong>machine learning</strong>, and <strong>geospatial analysis</strong> to quantify 
-                            <strong>compound risks</strong> and <strong>resilience dynamics</strong> in urban and coastal regions under climate change.
-                        </p>
-
-                        <h4>Research Question 1: How can integrated social–physical system models be developed to identify and generalize actionable pathways for enhancing community resilience?</h4>
-                        <p>
-                            I develop <strong>Agent-Based Models</strong> that couple natural hazard mapping with human behaviors and decision-making to assess the <strong>direct and indirect impacts</strong> of natural hazards. Using census data, human activity data, and natural hazard datasets, I build <strong>risk assessment tools</strong> for hydroclimate hazards such as flooding, hurricanes, and extreme heat, examining how these risks evolve under climate change, land use change, and population growth.
-                        </p>
-                        <p>
-                            I also develop and apply <strong>AI- and data-driven approaches</strong> to explore the indirect impacts of natural hazards under the combined effects of climate change, land use transitions, and demographic dynamics, with the aim of identifying pathways to enhance community resilience.
-                        </p>
-
-
-                        <h4>Research Question 2: How to integrate heterogeneous data, simulation models, and visualization to improve urban resilience planning and public engagement under climate uncertainty?</h4>
-                        <p>
-                            Integrating interdisciplinary knowledge into planning and design is challenging due to data compatibility issues, scientific uncertainty, and diverse planning goals. To address this, I develop techniques that <strong>fuse heterogeneous datasets and tools</strong> for scenario-based planning, decision support, and risk communication. 
-                            Building on simulations at the intersection of natural and human systems and my experience with <strong>3D visualization models</strong>, 
-                            I aim to further integrate these components to inform adaptation planning and support public engagement through <strong>digital twin approaches</strong>.
-                        </p>
-                        <p>
-                            I am developing <strong>digital twin models</strong> that merge simulation models, 2D/3D visualization, and multiple datasets to measure community risk, resilience, and adaptation strategies. These digital twins will integrate risk assessment tools from my previous natural hazard and resilience studies to enhance systemic risk assessment and risk communication.
-                        </p>
+                        <h2 id="about-title">About Me</h2>
+                        <p id="bio-hint" class="bio-hint">Scroll to read my research background and questions.</p>
+                        <div class="profile-bio bio-scroll" tabindex="0" role="region" aria-labelledby="about-title" aria-describedby="bio-hint">
+                            <p>My research combines <strong>computational modeling and empirical analysis</strong> to understand how individual decisions, public policy, and environmental change shape urban and regional resilience. I focus on the links between <strong>land use, mobility, and climate risk</strong>, with an emphasis on equitable planning and adaptation.</p>
+                            <p>My earlier studies examined household and government adaptation decisions under coastal flooding, evacuation behavior during compound hazards, and the relationships between social vulnerability, disaster assistance, insurance, and migration. This work established my interest in how behavioral and institutional responses influence who is exposed to risk and who benefits from adaptation.</p>
+                            <p>My publications include work in <em>Cities</em>, <em>Risk Analysis</em>, <em>Transportation</em>, <em>Sustainable Cities and Society</em>, and <em>Travel Behaviour and Society</em>. Research and teaching across the United States, China, the Netherlands, and the United Kingdom have shaped my interdisciplinary approach to collaboration across planning, engineering, and environmental science.</p>
+                            <h3>Research Question 1: How can we integrate social–physical systems to identify actionable pathways for adaptation planning?</h3>
+                            <p>I use <strong>agent-based models</strong> and spatial analysis to connect hazard exposure with household decisions and government interventions. By examining direct losses and indirect disruptions together, I investigate how adaptation strategies affect communities with different resources and vulnerabilities.</p>
+                            <h3>Research Question 2: How can we integrate heterogeneous data, simulation, and AI to improve resilience planning under climate uncertainty?</h3>
+                            <p>I explore how heterogeneous datasets, scenario analysis, and <strong>digital twin approaches</strong> can make complex interactions between social and physical systems more useful for planning. My aim is to communicate uncertainty, compare adaptation options, and support informed public engagement.</p>
                         </div>
 
-                        <a href="cv/Resume_YuHAN.pdf" class="btn-primary" download>Download CV</a>
+                        <div class="profile-bio current-research">
+                            <h2>Current Research at Cambridge</h2>
+                            <p>At Cambridge, I contribute to the <strong><a href="https://dare.ac.uk/about-us/our-team/yu-han/" target="_blank" rel="noopener noreferrer">DARe project</a></strong>, funded by UKRI and the Department for Transport, to support a decarbonized, adaptable, and climate-resilient transport system. I am developing an integrated land use and transport simulation framework that connects national socioeconomic scenarios with local daily mobility.</p>
+                            <p>The framework uses <strong>graph neural networks</strong> to project commuting flows under alternative population and employment scenarios. I combine these flows with UK National Travel Survey data to generate scenario-consistent synthetic populations and daily activity patterns, then use <strong>agent-based transport simulation</strong> to examine individual travel behavior and network performance. I am incorporating the resulting mobility outputs into <strong>urban digital twin models</strong> to assess exposure to flooding and extreme heat. This workflow provides a basis for evaluating how future development patterns change travel demand, where people and transport infrastructure face climate hazards, and how adaptation measures could reduce those risks.</p>
+                        </div>
+
+                        <a href="cv/CV_YuHan.pdf" class="btn-primary" download>Download CV</a>
 
                         <div class="contact-info">
-                            <p><strong>Email:</strong> <a href="mailto:hanyu.bit@gmail.com">hanyu.bit@gmail.com</a></p>
+                            <p><strong>Email:</strong> <a href="mailto:yh593@cam.ac.uk">yh593@cam.ac.uk</a></p>
                             <p><strong>Office:</strong> University of Cambridge, Department of Land Economy</p>
                         </div>
 
@@ -600,10 +616,51 @@
                                     <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947-.947-.431-.947-.947.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.203 2.725 5.203 5.022 0 2.687-1.888 5.019-5.237 5.019h-3.866V7.416zm1.444 1.303v7.444h2.297c3.278 0 3.9-2.459 3.9-3.722 0-2.047-1.159-3.722-3.9-3.722h-2.297z"/>
                                 </svg>
                             </a>
-                            <a href="mailto:hanyu.bit@gmail.com" title="Email">✉️</a>
+                            <a href="mailto:yh593@cam.ac.uk" title="Email">✉️</a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Curated news: add new cards here, newest first. -->
+        <section id="news" class="news-section" aria-labelledby="news-title">
+            <div class="container">
+                <div class="news-heading">
+                    <h2 id="news-title" class="section-title">Latest News</h2>
+                    <div class="news-controls" aria-label="News scrolling controls">
+                        <button type="button" data-news-direction="-1" aria-label="Previous news" aria-controls="news-track">←</button>
+                        <button type="button" id="news-pause" aria-controls="news-track">Pause</button>
+                        <button type="button" data-news-direction="1" aria-label="Next news" aria-controls="news-track">→</button>
+                    </div>
+                </div>
+                <div id="news-track" class="news-track" tabindex="0" role="region" aria-label="Recent conferences, research, and publications">
+                    <article class="news-card">
+                        <p class="news-meta">Conference · Recent appearance</p>
+                        <h3>Presentation at the ICE conference</h3>
+                        <p>I recently presented my research at the ICE conference.</p>
+                        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7513261581267546112/" target="_blank" rel="noopener noreferrer">Read the LinkedIn update →</a>
+                    </article>
+                    <article class="news-card">
+                        <p class="news-meta">Research · Featured project</p>
+                        <h3>An urban digital twin for flood and extreme heat exposure assessment</h3>
+                        <p>Explore the Cambridgeshire &amp; Peterborough case study through a video and research poster.</p>
+                        <a href="urbanresilience.html#urban-digital-twin">Explore the project →</a>
+                    </article>
+                    <article class="news-card">
+                        <p class="news-meta">Research spotlight · <time datetime="2025-10-27">27 October 2025</time></p>
+                        <h3>Urban digital twins for coastal resilience planning</h3>
+                        <p>Ingenious Cities features our Cedar Key, Florida research on how urban digital twins and geospatial dashboards can support public engagement and coastal climate resilience.</p>
+                        <a href="https://journalper.substack.com/p/urban-digital-twins" target="_blank" rel="noopener noreferrer">Read the research spotlight →</a>
+                    </article>
+                    <article class="news-card">
+                        <p class="news-meta">Publication · 2025</p>
+                        <h3>Nature-based solutions for compound flood risk</h3>
+                        <p>Our Shanghai case study examines compound flood risk mitigation in the Journal of Environmental Management.</p>
+                        <a href="https://doi.org/10.1016/j.jenvman.2025.125155" target="_blank" rel="noopener noreferrer">Read the article →</a>
+                    </article>
+                </div>
+                <p class="news-sources">More updates on <a href="https://www.linkedin.com/in/yu-han-79998865/" target="_blank" rel="noopener noreferrer">LinkedIn</a> and <a href="https://scholar.google.com/citations?user=oy7GClQAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>.</p>
             </div>
         </section>
 
@@ -630,8 +687,8 @@
                     
                     <div class="research-card">
                         <img src="images/pics/AI.jpg" alt="Data Analytics" class="research-icon">
-                        <h3>Data-Driven Urban Analytics</h3>
-                        <p>Leveraging machine learning, AI, and open geospatial tools to inform sustainable urban planning and design</p>
+                        <h3>Urban AI &amp; Data-Driven Analytics</h3>
+                        <p>Connecting graph neural networks, geospatial analysis, and urban digital twins to support scenario-based planning and climate resilience.</p>
                         <a href="datadrivenrisk.html" class="research-link">Learn more →</a>
                     </div>
                 </div>
@@ -649,7 +706,7 @@
                     </li>
 
                     <li class="publication-item">
-                        <p>Changjie Chen(*), <strong>Yu Han</strong>, Andrea Galinski, et al. (2025). <a href="https://doi.org/10.1177/0739456X251316185">Integrating urban digital twins with cloudbased geospatial dashboards for coastal resilience planning: A case study in Florida</a>. <i>Journal of Planning Education and Research</i></p>
+                        <p>Changjie Chen(*), <strong>Yu Han</strong>, Andrea Galinski, et al. (2025). <a href="https://doi.org/10.1177/0739456X251316185">Integrating urban digital twins with cloud-based geospatial dashboards for coastal resilience planning: A case study in Florida</a>. <i>Journal of Planning Education and Research</i></p>
                     </li>
 
                     <li class="publication-item">
@@ -682,8 +739,8 @@
                         <a href="teachexperience.html#disaster-risk-management">
                             <img src="images/course1.jpg" alt="Disaster Risk Management" class="teaching-image">
                             <div class="teaching-content">
-                                <h3>Disaster Risk Management</h3>
-                                <p class="teaching-meta">University of Twente • Co-Instructor • Fall 2023</p>
+                                <h3>Modeling Multi-Hazard &amp; Risks</h3>
+                                <p class="teaching-meta">University of Twente • Instructor • Fall 2023</p>
                                 <p>Multidisciplinary analysis of risk and applications in disaster management decision-making.</p>
                             </div>
                         </a>
@@ -705,7 +762,7 @@
                             <img src="images/course3-2.jpg" alt="Transportation Modeling" class="teaching-image">
                             <div class="teaching-content">
                                 <h3>Land Use and Transportation Modeling</h3>
-                                <p class="teaching-meta">University of Florida • Co-Instructor • Spring 2019</p>
+                                <p class="teaching-meta">University of Florida • Teaching Assistant • Spring 2020</p>
                                 <p>Graduate course on modeling principles and activity-based models with hands-on labs.</p>
                             </div>
                         </a>
@@ -721,7 +778,7 @@
                 <div class="contact-box">
                     <h3>Get in Touch</h3>
                     <p>I'm always interested in discussing research collaborations, academic opportunities, and potential projects in climate adaptation and urban resilience.</p>
-                    <p><strong>Email:</strong> <a href="mailto:hanyu.bit@gmail.com">hanyu.bit@gmail.com</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:yh593@cam.ac.uk">yh593@cam.ac.uk</a></p>
                     <p><strong>Institution:</strong> University of Cambridge<br>Department of Land Economy</p>
                 </div>
             </div>
@@ -730,7 +787,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Yu Han. All rights reserved.</p>
+            <p>&copy; 2026 Yu Han. All rights reserved.</p>
         </div>
     </footer>
 
@@ -781,5 +838,6 @@
             }
         });
     </script>
+    <script src="assets/news.js" defer></script>
 </body>
 </html>
